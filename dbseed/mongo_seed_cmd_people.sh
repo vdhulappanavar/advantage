@@ -1,1 +1,1 @@
-mongoimport --db node-angular --collection peoples --drop --file ./people_seed.json
+mongoimport --db advantage --collection peoples --drop --file ./people_seed.json

@@ -7,15 +7,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var appRoutes = require('./routes/app');
-var messageRoutes = require('./routes/messages');
-var patientRoutes = require('./routes/patients');
 var peopleRoutes = require('./routes/peoples');
-var usercommentRoutes = require('./routes/usercomments');
-
 var userRoutes = require('./routes/users');
 
 var app = express();
-mongoose.connect('localhost:27017/node-angular');
+mongoose.connect('localhost:27017/advantage');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,11 +31,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/message', messageRoutes);
-app.use('/patient', patientRoutes);
 app.use('/people', peopleRoutes);
-//app.use('/persons', peopleRoutes);
-app.use('/usercomment', usercommentRoutes);
 app.use('/user', userRoutes);
 app.use('/', appRoutes);
 
