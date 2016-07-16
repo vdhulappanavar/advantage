@@ -8,7 +8,8 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
                 <ul class="nav nav-pills">
                     <li><a [routerLink]="['Patients']">Patients</a></li>
                     <li><a [routerLink]="['Medicines']">Medicines</a></li>
-                    <li><a [routerLink]="['Auth']">Authentication</a></li>
+                    <li><a [routerLink]="['Med2patients']">Med2Patients</a></li>
+                    <li><a [routerLink]="['Auth']">User Management</a></li>
                 </ul>
             </nav>
         </header>
