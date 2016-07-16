@@ -1,5 +1,5 @@
 import { Injectable } from 'angular2/core';
-import { Http, Response } from 'angular2/http';
+import { Http, Headers, Response } from 'angular2/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 
@@ -25,9 +25,14 @@ export class PatientsService{
       return patients$;
   }
   savePatient(patient: Patient) : Observable<Response>{
-    return this.http
-      .post(`${this.baseUrl}/patients/${patient.id}`, JSON.stringify(patient));
+        const body = JSON.stringify(patient);
+        const headers = new Headers({'Content-Type': 'application/json'});
+
+         return this.http
+              .post(`${this.baseUrl}/patients/${patient.id}`,body, {headers: headers});
   }
+
+
 }
 
 function mapPatients(response:Response): Patient[]{
@@ -44,7 +49,7 @@ function toPatient(r:any): Patient{
     id: r._id,
     url: r.url,
     name: r.name,
-    weight: r.mass,
+    weight: r.weight,
     height: r.height,
     mongoId : r._id
   });

@@ -1,23 +1,23 @@
     {
-      "name": "Luke Skywalker",
+      "name": "Medicine-1",
       "height": "172",
       "weight": "77",
       "url": "http://swapi.co/api/people/1/"
     }
     {
-      "name": "C-3PO",
+      "name": "Medicine-2",
       "height": "167",
       "weight": "75",
       "url": "http://swapi.co/api/people/2/"
     }
     {
-      "name": "R2-D2",
+      "name": "Medicine-3",
       "height": "96",
       "weight": "32",
       "url": "http://swapi.co/api/people/3/"
     }
     {
-      "name": "Darth Vader",
+      "name": "Medicine-4",
       "height": "202",
       "weight": "136",
       "url": "http://swapi.co/api/people/4/"

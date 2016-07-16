@@ -10,19 +10,19 @@ router.get('/static', function(req, res, next) {
              {
       "name": "Luke Skywalker",
       "height": "172",
-      "mass": "77",
+      "weight": "77",
       "url": "http://swapi.co/api/patients/1/"
     },
     {
       "name": "C-3PO",
       "height": "167",
-      "mass": "75",
+      "weight": "75",
       "url": "http://swapi.co/api/patients/2/"
     },
     {
       "name": "R2-D2",
       "height": "96",
-      "mass": "32",
+      "weight": "32",
       "url": "http://swapi.co/api/patients/3/"
     }
      ])
@@ -86,7 +86,7 @@ router.post('/', function(req, res, next) {
 
 
 
-router.patch('/:id', function(req, res, next) {
+router.post('/:id', function(req, res, next) {
     Patients.findById(req.params.id, function(err, doc) {
         if (err) {
             return res.status(404).json({
@@ -100,7 +100,8 @@ router.patch('/:id', function(req, res, next) {
                 error: {message: 'Message could not be found'}
             });
         }
-        console.log(doc);
+        console.log("Mongo Record before update .... "+doc);
+        console.log("Request Body from Browser .... "+req.body);
 //        console.log(decoded.user);
 //        if (doc.user != decoded.user._id) {
 //            return res.status(401).json({

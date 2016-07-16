@@ -44,7 +44,7 @@ function toPerson(r:any): Person{
     id: r._id,
     url: r.url,
     name: r.name,
-    weight: r.mass,
+    weight: r.weight,
     height: r.height,
     mongoId : r._id
   });
