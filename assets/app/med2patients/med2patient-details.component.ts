@@ -6,6 +6,9 @@ import { NgForm }    from 'angular2/common';
 import { Med2patientsService } from './med2patients.service';
 import { Med2patient } from './med2patient';
 
+import { MedicinesService } from '../medicines/medicines.service';
+import { Medicine } from '../medicines/medicine';
+
 @Component({
   selector: 'med2patient-details',
   templateUrl: 'html/med2patients/med2patient-details.component.html',
@@ -13,10 +16,12 @@ import { Med2patient } from './med2patient';
 })
 export class Med2patientDetailsComponent implements OnInit {
     @Input() med2patient : Med2patient;
+    medicines: Medicine[] = [];
     isSaving: boolean;
     professions: string[] = ['jedi', 'bounty hunter', 'princess', 'sith lord'];
 
     constructor(private med2patientsService: Med2patientsService,
+                private medicinesService: MedicinesService,
                private routeParams: RouteParams,
                private router: Router){
     }
@@ -28,6 +33,15 @@ export class Med2patientDetailsComponent implements OnInit {
         this.med2patientsService
           .getMed2patients(id)
           .subscribe(p => this.med2patient = p);
+
+        this.medicinesService
+                .getAllMedicines()
+                .subscribe(p => this.medicines = p)
+    }
+
+
+    sendToPatMedList(){
+        console.log("Send to Patient List clicked");
     }
 
     gotoPeoplesList(){

@@ -20,17 +20,43 @@
 
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6" style="background-color:yellow;">
-                <p>Medicine List will go here</p>
-            </div>
-            <div class="col-sm-6" style="background-color:pink;">
-                <ul class="med2patients_medicines">
-                    <li *ngFor="#med2patientmedicine of med2patient.medicines" >
-                        <h6>{{med2patientmedicine.name}}{{med2patientmedicine.qty}}</h6>
-                    </li>
-                </ul>
-            </div>
+       <div class="col-md-12 text-center"><h3>Pick Medicines</h3></div>
+        <div class="row col-md-12 text-center">
+           
+                <div class="col-sm-4 col-sm-offset-1">
+                      <div class="list-group" id="list1">
+                          <ul class="medicines">
+                            <a href="#" class="list-group-item active">Master List <input title="toggle all" type="checkbox" class="all pull-right"></a>
+                              <li *ngFor="#medicine of medicines" >
+                                <a href="#" class="list-group-item">{{medicine.name}} <input type="checkbox" class="pull-right"></a>
+                            </li>
+                          </ul>                
+                      </div>
+                </div>
+                <div class="col-md-2 v-center">
+     		            <button title="Send to list 2" (click)="sendToPatMedList()" class="btn btn-default center-block add"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                    <button title="Send to list 1" class="btn btn-default center-block remove"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                </div>
+                <div class="col-sm-4">
+                    <div class="list-group" id="list2">
+                          <ul class="med2patients_medicines">
+                            <a href="#" class="list-group-item active">Patients Medicine <input title="toggle all" type="checkbox" class="all pull-right"></a>
+                              <li *ngFor="#med2patientmedicine of med2patient.medicines" >
+                                <a href="#" class="list-group-item">{{med2patientmedicine.name}}{{med2patientmedicine.qty}}<input type="checkbox" class="pull-right"></a>
+                            </li>
+                          </ul>                
+                      </div>
+                        <!--section class="main">
+                            <ul class="todo-list">
+                                <todo-item *ngFor="#med2patientmedicine of med2patient.medicines"
+                                      [item]="med2patientmedicine"
+                                      (done)="removeItem($event)"
+                                      (itemUpdated)="itemUpdated($event)">
+                                </todo-item>
+                          </ul>
+                         </section-->
+                </div>
+            
         </div>
     </div>
 
