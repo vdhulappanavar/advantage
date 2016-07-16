@@ -37,6 +37,13 @@
         <div [hidden]="!isSaving"> Saving... </div>
       </form>
     </section>
+    <section>
+     <ul class="med2patients_medicines">
+    <li *ngFor="#med2patientmedicine of med2patient.medicines" >
+      <h6>{{med2patientmedicine.name}}{{med2patientmedicine.qty}}</h6>
+    </li>
+    </ul>
+  </section>
   </section>
   <section *ngIf="!med2patient">
     Loading...

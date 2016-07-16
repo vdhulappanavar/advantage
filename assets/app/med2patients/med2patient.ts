@@ -6,4 +6,10 @@ export interface Med2patient {
   weight: number;
   profession?: string;
   mongoId : string;
+  medicines : [{
+    medid : string;
+    name : string;
+    qty : string;
+    totalcost : number
+  }]
 }
