@@ -24,6 +24,7 @@ import { Med2patientDetailsComponent } from './med2patients/med2patient-details.
 import { Med2patientsService } from './med2patients/med2patients.service';
 
 
+
 @Component({
     selector: 'my-app',
     template: ` 

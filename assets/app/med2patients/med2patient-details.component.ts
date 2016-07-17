@@ -9,6 +9,7 @@ import { Med2patient } from './med2patient';
 import { MedicinesService } from '../medicines/medicines.service';
 import { Medicine } from '../medicines/medicine';
 
+
 @Component({
   selector: 'med2patient-details',
   templateUrl: 'html/med2patients/med2patient-details.component.html',
@@ -40,10 +41,7 @@ export class Med2patientDetailsComponent implements OnInit {
     }
 
 
-    sendToPatMedList(){
-        console.log("Send to Patient List clicked");
-    }
-
+  
     gotoPeoplesList(){
         let link = ['Med2patients'];
         this.router.navigate(link);
@@ -60,5 +58,16 @@ export class Med2patientDetailsComponent implements OnInit {
             (error) => {console.log('error: ', error);},
             () => {this.isSaving = false;}
           );
+    }
+
+    onEdit(event : string, med2patient : Med2patient) {
+           console.log(event, med2patient);
+    }
+
+      addNewMedPatientList(event : string, medicine : Medicine) {
+            console.log("Send to Patient List clicked");
+           console.log(event, medicine);
+           this.med2patient.newmedicines.push(medicine);
+           this.saveMed2patientDetails()
     }
 }

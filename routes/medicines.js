@@ -66,10 +66,9 @@ router.post('/', function(req, res, next) {
         var medicines = new Medicines({
             url         : req.body.url,
             name        : req.body.name,
-            height      : req.body.height,
-            weight      : req.body.weight,
-            profession  : req.body.profession
-           });
+            qty      : req.body.qty,
+            totalcost      : req.body.totalcost
+        });
         medicines.save(function(err, result) {
             if (err) {
                 return res.status(404).json({
@@ -107,12 +106,13 @@ router.post('/:id', function(req, res, next) {
 //                error: {message: 'Message created by other user'}
 //            });
 //        }
-        doc.url = req.body.url;
-        doc.name = req.body.name;
-        doc.height = req.body.height;
-        doc.weight = req.body.weight;
-        doc.profession = req.body.profession;
-        
+
+            doc.url         = req.body.url;
+            doc.name        = req.body.name;
+            doc.qty         = req.body.qty;
+            doc.totalcost   = req.body.totalcost;
+
+
         doc.save(function(err, result) {
             if (err) {
                 return res.status(404).json({
@@ -151,12 +151,12 @@ router.patch('/:id', function(req, res, next) {
 //                error: {message: 'Message created by other user'}
 //            });
 //        }
-        doc.url = req.body.url;
-        doc.name = req.body.name;
-        doc.height = req.body.height;
-        doc.weight = req.body.weight;
-        doc.profession = req.body.profession;
-        
+ 
+            doc.url         = req.body.url;
+            doc.name        = req.body.name;
+            doc.qty         = req.body.qty;
+            doc.totalcost   = req.body.totalcost;
+
         doc.save(function(err, result) {
             if (err) {
                 return res.status(404).json({

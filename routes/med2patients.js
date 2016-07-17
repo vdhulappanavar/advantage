@@ -63,12 +63,15 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+
         var med2patients = new Med2patients({
             url         : req.body.url,
             name        : req.body.name,
             height      : req.body.height,
             weight      : req.body.weight,
-            profession  : req.body.profession
+            profession  : req.body.profession,
+            medicines : req.body.medicines,
+            newmedicines : req.body.medicines,
            });
         med2patients.save(function(err, result) {
             if (err) {
@@ -114,6 +117,8 @@ router.post('/:id', function(req, res, next) {
         doc.height = req.body.height;
         doc.weight = req.body.weight;
         doc.profession = req.body.profession;
+        doc.medicines = req.body.medicines,
+        doc.newmedicines = req.body.medicines,
         
         doc.save(function(err, result) {
             if (err) {

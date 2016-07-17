@@ -1,3 +1,5 @@
+import { Medicine } from '../medicines/medicine';
+
 export interface Med2patient {
   id?: string;
   url?: string;
@@ -6,10 +8,6 @@ export interface Med2patient {
   weight: number;
   profession?: string;
   mongoId : string;
-  medicines : [{
-    medid : string;
-    name : string;
-    qty : string;
-    totalcost : number
-  }]
+  medicines : Medicine[];
+  newmedicines : Medicine[];
 }
