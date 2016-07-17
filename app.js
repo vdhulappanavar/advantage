@@ -12,6 +12,7 @@ var patientsRoutes = require('./routes/patients');
 var medicinesRoutes = require('./routes/medicines');
 var med2patientsRoutes = require('./routes/med2patients');
 var userRoutes = require('./routes/users');
+var studentsRoutes = require('./routes/students');
 
 var app = express();
 mongoose.connect('localhost:27017/advantage');
@@ -39,6 +40,7 @@ app.use('/patients', patientsRoutes);
 app.use('/medicines', medicinesRoutes);
 app.use('/med2patients', med2patientsRoutes);
 app.use('/user', userRoutes);
+app.use('/students', studentsRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

@@ -1,9 +1,9 @@
-.person-details{
+.student-details{
   width: 70%;
   margin: 0 auto;  
 }
 
-.person-details .person-details__header{
+.student-details .student-details__header{
   text-align: center;
 }
 
