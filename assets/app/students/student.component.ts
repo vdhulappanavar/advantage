@@ -10,9 +10,7 @@ import { StudentFilterPipe } from './student-filter.pipe';
 @Component({
   selector: 'students-list',
   directives: [StudentDetailsComponent, ROUTER_DIRECTIVES],
-  template: `
-  <!-- this is the new syntax for ng-repeat -->
-  HI
+  template: `    
   <div class="panel panel-primary ">
 	  <div class="panel-heading">
     <div class='row'>

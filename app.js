@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var peopleRoutes = require('./routes/peoples');
 var patientsRoutes = require('./routes/patients');
+var ActualpatientsRoutes = require('./routes/Actualpatients');
 var medicinesRoutes = require('./routes/medicines');
 var med2patientsRoutes = require('./routes/med2patients');
 var userRoutes = require('./routes/users');
@@ -37,6 +38,7 @@ app.use(function(req, res, next) {
 
 app.use('/people', peopleRoutes);
 app.use('/patients', patientsRoutes);
+app.use('/Actualpatients', ActualpatientsRoutes);
 app.use('/medicines', medicinesRoutes);
 app.use('/med2patients', med2patientsRoutes);
 app.use('/user', userRoutes);
