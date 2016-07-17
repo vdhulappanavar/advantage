@@ -28,6 +28,9 @@ import { StudentDetailsComponent } from './students/student-details.component';
 import { StudentAddComponent } from './students/student-add.component';
 import { StudentsService } from './students/students.service';
 
+import { ActualpatientComponent} from './actualpatients/actualpatient.component';
+import { ActualpatientsService } from './actualpatients/actualpatients.service';
+
 
 @Component({
     selector: 'my-app',
@@ -37,8 +40,8 @@ import { StudentsService } from './students/students.service';
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [ROUTER_DIRECTIVES, HeaderComponent, PeopleComponent, PatientComponent, MedicineComponent, Med2patientComponent , StudentComponent],
-    providers: [StarWarsService, PatientsService, MedicinesService, Med2patientsService, ROUTER_PROVIDERS, HTTP_PROVIDERS , StudentsService]
+    directives: [ROUTER_DIRECTIVES, HeaderComponent, PeopleComponent, PatientComponent, MedicineComponent, Med2patientComponent , StudentComponent , ActualpatientComponent],
+    providers: [StarWarsService, PatientsService, MedicinesService, Med2patientsService, ROUTER_PROVIDERS, HTTP_PROVIDERS , StudentsService , ActualpatientsService]
 })
 @RouteConfig([
     { path: '/patients', name: 'Patients', component: PatientComponent, useAsDefault: true},
@@ -50,7 +53,8 @@ import { StudentsService } from './students/students.service';
     {path: '/auth/...', name: 'Auth', component: AuthenticationComponent},
     { path: '/students', name: 'Students', component: StudentComponent},
     { path: '/students/:id', name: 'Student Details', component: StudentDetailsComponent },
-    { path: '/studentsAdd', name: 'Student Add', component: StudentAddComponent }
+    { path: '/studentsAdd', name: 'Student Add', component: StudentAddComponent },
+    { path: '/Actualpatients', name: 'Actualpatients', component: ActualpatientComponent},
 ])
 export class AppComponent {
     
