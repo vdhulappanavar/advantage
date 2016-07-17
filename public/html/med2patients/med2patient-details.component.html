@@ -34,10 +34,6 @@
                           </ul>                
                       </div>
                 </div>
-                <div class="col-md-2 v-center">
-     		            <button title="Send to list 2" (click)="sendToNewMedPatientList($event, med2patientmedicine)" class="btn btn-default center-block add"><i class="glyphicon glyphicon-chevron-right"></i></button>
-                    <button title="Send to list 1" class="btn btn-default center-block remove"><i class="glyphicon glyphicon-chevron-left"></i></button>
-                </div>
                 <div class="col-sm-4">
                     <div class="list-group" id="list2">
                           <ul class="med2patients_medicines">
@@ -53,7 +49,7 @@
                           </ul>                
                       </div>
                       <div class="list-group" id="list3">
-                          <ul class="newmed2patients_medicines">
+                          <ul class="newmed2patients_newmedicines">
                               <a href="#" class="list-group-item active">Patients New Medicine <input title="toggle all" type="checkbox" class="all pull-right"></a>
                               <li *ngFor="#newmed2patientmedicine of med2patient.newmedicines" >
                                       <a href="#" class="list-group-item">{{newmed2patientmedicine.name}}{{newmed2patientmedicine.qty}}
