@@ -8,11 +8,29 @@ import { Actualpatient } from './actualpatient';
 
 @Component({
   selector: 'actualpatients-details',
-  templateUrl: 'html/actualpatientss/actualpatients-add.component.html',
-  styleUrls: ['html/actualpatientss/actualpatients-add.component.css']
+  templateUrl: 'html/actualpatients/actualpatient-add.component.html',
+  styleUrls: ['html/actualpatients/actualpatients-add.component.css']
 })
 export class ActualpatientsAddComponent implements OnInit {
-    actualpatients : Actualpatient ;
+    actualpatient : Actualpatient = {"regitrationNumber" : "test" ,    
+    "name"        : "",
+    "gender"      : "",
+    "DOB"         : new Date("1934-11-1"),
+    "dateOfAdmission" : new Date("2014-11-1"),  
+    "photoUrl"    : "http://lorempixel.com/100/100/people?1",
+    "PCPContact" : 
+    {
+		  "name" : "123test" , 
+		  "contactNo" : "" , 
+		  "adress" : "test"
+	   },
+    "comments" : "",
+    "initialPayment" : 
+    {
+		  "registrationFee" : 8000	
+    }
+    };
+    
     isSaving: boolean = false; 
     
 
@@ -30,7 +48,7 @@ export class ActualpatientsAddComponent implements OnInit {
     }
 
     gotoPeoplesList(){
-        let link = ['Actualpatientss'];
+        let link = ['Actualpatients'];
         this.router.navigate(link);
         // could also use:
         // window.history.back();
@@ -38,9 +56,9 @@ export class ActualpatientsAddComponent implements OnInit {
     saveNewActualpatientsDetails(){
       this.isSaving = true;
       this.actualpatientsService
-          .saveNewActualpatient(this.actualpatients)
+          .saveNewActualpatient(this.actualpatient)
           .subscribe( 
-            (r: Response) => {console.log('success, '+ JSON.stringify(this.actualpatients))},
+            (r: Response) => {console.log('success, '+ JSON.stringify(this.actualpatient))},
             (error) => {console.log('error: ', error);},
             () => {this.isSaving = false;}
           );

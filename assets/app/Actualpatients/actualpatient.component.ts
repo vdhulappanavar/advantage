@@ -18,7 +18,7 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
             <div class='col-md-4' style="color:black">
                 <input type='text' [(ngModel)]='listFilter'/>
             </div>
-            <div class='col-md-2 col-md-offset-3'><button class="btn btn-danger" >ADD</button></div>
+            <div class='col-md-2 col-md-offset-3'><button class="btn btn-danger" [routerLink] = "['Actualpatients Add']" >ADD</button></div>
      </div>		 
 	  </div>
 	  <div class="panel-body">

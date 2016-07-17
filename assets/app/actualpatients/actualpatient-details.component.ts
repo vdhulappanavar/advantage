@@ -3,7 +3,7 @@ import { RouteParams, Router} from 'angular2/router';
 import { Response } from 'angular2/http';
 import { NgForm }    from 'angular2/common';
 
-import { ActualpatientsService } from './actualpatients.service';
+import { ActualpatienssService } from './actualpatients.service';
 import { Actualpatient } from './actualpatient';
 
 @Component({
@@ -16,7 +16,7 @@ export class ActualpatientDetailsComponent implements OnInit {
     isSaving: boolean;
     professions: string[] = ['jedi', 'bounty hunter', 'princess', 'sith lord'];
 
-    constructor(private actualpatientsService: ActualpatientsService,
+    constructor(private actualpatientsService: ActualpatienssService,
                private routeParams: RouteParams,
                private router: Router){
     }
@@ -39,7 +39,7 @@ export class ActualpatientDetailsComponent implements OnInit {
     saveActualpatientDetails(){
       this.isSaving = true;
       this.actualpatientsService
-          .saveActualpatient(this.actualpatient)
+          .saveActualpatients(this.actualpatient)
           .subscribe(
  //           (r: Response) => {console.log('success, id:'+this.actualpatient.id+', Name:'+this.actualpatient.name+', Weight:'+this.actualpatient.weight)},
             (r: Response) => {console.log('success, '+ JSON.stringify(this.actualpatient))},

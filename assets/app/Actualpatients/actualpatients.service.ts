@@ -39,17 +39,19 @@ export class ActualpatientsService{
         console.log("body from saveNewStudent : " , body);
         const headers = new Headers({'Content-Type': 'application/json'});
 
-         return this.http.post('/students' , body, {headers: headers});
+         return this.http.post('/Actualpatients' , body, {headers: headers});
   }
 
 
 }
 
 function mapActualpatients(response:Response): Actualpatient[]{
+  console.log("mapActualpatients");
    return response.json().obj.map(toActualpatient)
 }
 
 function mapActualpatient(response:Response): Actualpatient{
+  console.log("mapActualpatient");
    return toActualpatient(response.json().obj);
 }
 

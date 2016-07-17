@@ -62,15 +62,20 @@ router.get('/:id', function(req, res, next) {
         });
 });
 
-/*router.post('/', function(req, res, next) {
-        var patients = new Patients({
-            url         : req.body.url,
+router.post('/', function(req, res, next) {    
+        console.log("In post");
+        var Actualpatients = new Actualpatients({
+            regitrationNumber: req.body.regitrationNumber,
             name        : req.body.name,
-            height      : req.body.height,
-            weight      : req.body.weight,
-            profession  : req.body.profession
+            gender      : req.body.gender,
+            DOB      : req.body.DOB,
+            dateOfAdmission  : req.body.dateOfAdmission,
+            photoUrl      : req.body.photoUrl,
+            PCPContact      : req.body.PCPContact,
+            comments      : req.body.comments,
+            initialPayment      : req.body.initialPayment            
            });
-        patients.save(function(err, result) {
+        Actualpatients.save(function(err, result) {
             if (err) {
                 return res.status(404).json({
                     title: 'An error occurred',
@@ -87,7 +92,7 @@ router.get('/:id', function(req, res, next) {
 
 
 router.post('/:id', function(req, res, next) {
-    Patients.findById(req.params.id, function(err, doc) {
+    Actualpatients.findById(req.params.id, function(err, doc) {
         if (err) {
             return res.status(404).json({
                 title: 'An error occurred',
@@ -109,11 +114,16 @@ router.post('/:id', function(req, res, next) {
 //                error: {message: 'Message created by other user'}
 //            });
 //        }
-        doc.url = req.body.url;
-        doc.name = req.body.name;
-        doc.height = req.body.height;
-        doc.weight = req.body.weight;
-        doc.profession = req.body.profession;
+
+            doc.regitrationNumber= req.body.regitrationNumber,
+            doc.name        = req.body.name,
+            doc.gender      = req.body.gender,
+            doc.DOB      = req.body.DOB,
+            doc.dateOfAdmission  = req.body.dateOfAdmission,
+            doc.photoUrl      = req.body.photoUrl,
+            doc.PCPContact      = req.body.PCPContact,
+            doc.comments      = req.body.comments,
+            doc.initialPayment      = req.body.initialPayment        
         
         doc.save(function(err, result) {
             if (err) {
@@ -142,6 +152,6 @@ router.use('/', function(req, res, next) {
     });
 });
 
-*/
+
 
 module.exports = router;

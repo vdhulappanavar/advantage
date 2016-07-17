@@ -1,0 +1,104 @@
+<h1> HI </h1>
+<section class="student-details">
+  <!-- new syntax for ng-if -->
+  <section *ngIf="student">
+    <section class="student-details__header">
+      <h2>You selected: {{student.name}}</h2>
+      <h3>Description</h3>
+      <p>
+        {{student.name}} standards {{student.standard}} and is {{student.schoolName}} tall.
+      </p>
+    </section>
+    <section>
+      <form (ngSubmit)="savestudentDetails()" #studentForm="ngForm">
+        <div>
+          <label for="name">Name: </label>
+          <!-- [(ngModel)] let's you do two-way data binding -->
+          <input [(ngModel)]="student.name" required ngControl="name" #name="ngForm">
+          <div [hidden]="name.valid || name.pristine" class="error">
+            Name is required
+          </div>
+        </div>
+        <div>
+          <label for="standard">standard: </label>
+          <input [(ngModel)]="student.standard" ngControl="standard">
+        </div>
+        <div>
+          <label for="schoolName">schoolName: </label>
+          <input [(ngModel)]="student.schoolName" ngControl="schoolName">
+        </div>
+        <div>
+          <label for="profession">Profession:</label>
+          <select>
+            <option *ngFor="#profession of professions" [value]="profession">{{profession}}</option>
+          </select>
+        </div>
+        <button type="submit" [disabled]="!studentForm.form.valid">Save</button>
+        <button type="button" (click)="gotoPeoplesList()">Back to peoples list</button>
+        <div [hidden]="!isSaving"> Saving... </div>
+      </form>
+    </section>
+  </section>
+  <section *ngIf="!student">
+    Loading...
+  </section>
+</section>
+
+<div class="panel panel-primary">
+  <div class="panel-heading" style='font-size:large'>
+      Enter Patient Details
+  </div>
+  
+  <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Regitration Number:</div>
+                    <div class='col-md-6'>{{actualpatient.regitrationNumber}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Name:</div>
+                    <div class='col-md-6'>{{actualpatient.name}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Geneder:</div>
+                    <div class='col-md-6'>{{actualpatient.gender}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>DOB:</div>
+                    <div class='col-md-6'>{{actualpatient.DOB}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>dateOfAdmission:</div>
+                    <div class='col-md-6'>{{actualpatient.dateOfAdmission}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>photoUrl:</div>
+                    <div class='col-md-6'>{{actualpatient.photoUrl}}</div>
+                </div>
+                PCPContact: 
+                <div class='row'>
+                    <div class='col-md-3'>photoUrl:</div>
+                    <div class='col-md-6'>{{actualpatient.PCPContact.name}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>photoUrl:</div>
+                    <div class='col-md-6'>{{actualpatient.PCPContact.contactNo}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>photoUrl:</div>
+                    <div class='col-md-6'>{{actualpatient.PCPContact.adress}}</div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+    
+  </div>
+  
+  
