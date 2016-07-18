@@ -2,32 +2,32 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 
-var Actualpatients = require('../models/Actualpatients');
+var Actualpatients = require('../models/actualpatients');
 
 
-/*router.get('/static', function(req, res, next) {
+router.get('/static', function(req, res, next) {
         res.json( [
              {
       "name": "Luke Skywalker",
       "height": "172",
       "weight": "77",
-      "url": "http://swapi.co/api/patients/1/"
+      "url": "http://swapi.co/api/actualpatients/1/"
     },
     {
       "name": "C-3PO",
       "height": "167",
       "weight": "75",
-      "url": "http://swapi.co/api/patients/2/"
+      "url": "http://swapi.co/api/actualpatients/2/"
     },
     {
       "name": "R2-D2",
       "height": "96",
       "weight": "32",
-      "url": "http://swapi.co/api/patients/3/"
+      "url": "http://swapi.co/api/actualpatients/3/"
     }
      ])
  
-});*/
+});
 
 router.get('/', function(req, res, next) {
     Actualpatients.find()
@@ -62,20 +62,18 @@ router.get('/:id', function(req, res, next) {
         });
 });
 
-router.post('/', function(req, res, next) {    
-        console.log("In post");
-        var Actualpatients = new Actualpatients({
-            regitrationNumber: req.body.regitrationNumber,
+router.post('/', function(req, res, next) {
+
+        var actualpatients = new Actualpatients({
+            url         : req.body.url,
             name        : req.body.name,
-            gender      : req.body.gender,
-            DOB      : req.body.DOB,
-            dateOfAdmission  : req.body.dateOfAdmission,
-            photoUrl      : req.body.photoUrl,
-            PCPContact      : req.body.PCPContact,
-            comments      : req.body.comments,
-            initialPayment      : req.body.initialPayment            
+            height      : req.body.height,
+            weight      : req.body.weight,
+            profession  : req.body.profession,
+            medicines : req.body.medicines,
+            newmedicines : req.body.medicines,
            });
-        Actualpatients.save(function(err, result) {
+        actualpatients.save(function(err, result) {
             if (err) {
                 return res.status(404).json({
                     title: 'An error occurred',
@@ -114,16 +112,13 @@ router.post('/:id', function(req, res, next) {
 //                error: {message: 'Message created by other user'}
 //            });
 //        }
-
-            doc.regitrationNumber= req.body.regitrationNumber,
-            doc.name        = req.body.name,
-            doc.gender      = req.body.gender,
-            doc.DOB      = req.body.DOB,
-            doc.dateOfAdmission  = req.body.dateOfAdmission,
-            doc.photoUrl      = req.body.photoUrl,
-            doc.PCPContact      = req.body.PCPContact,
-            doc.comments      = req.body.comments,
-            doc.initialPayment      = req.body.initialPayment        
+        doc.url = req.body.url;
+        doc.name = req.body.name;
+        doc.height = req.body.height;
+        doc.weight = req.body.weight;
+        doc.profession = req.body.profession;
+        doc.medicines = req.body.medicines,
+        doc.newmedicines = req.body.medicines,
         
         doc.save(function(err, result) {
             if (err) {
