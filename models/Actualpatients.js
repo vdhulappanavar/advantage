@@ -1,20 +1,26 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+            
+var contact = new Schema({
+    name : String , 
+    contactNo : String , 
+    adress : String 
+});
 
-var subMedicine = new Schema({ 
-            medid   : String,
-            name    : String,
-            qty     : String,
-            totalcost : Number});
+var initialPayment = new Schema({
+    registrationFee : Number
+});
 
-var schema = new Schema({
-    url             : String,
-    name            : String,
-    height          : Number,
-    weight          : Number,
-    profession      : String,
-    medicines       : [ subMedicine ],
-    newmedicines    : [ subMedicine ]
+var schema = new Schema({    
+    registrationNumber          : String,
+    name            : String,    
+    gender          : String,
+    dob             : Date ,
+    dateOfAdmission : Date ,
+    photourl             : String,
+    comments : String , 
+    initialPayment : initialPayment , 
+    pcpContact : contact 
 });
 
 module.exports = mongoose.model('Actualpatients', schema);

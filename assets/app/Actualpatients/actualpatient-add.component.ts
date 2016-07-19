@@ -12,17 +12,17 @@ import { Actualpatient } from './actualpatient';
   styleUrls: ['html/actualpatients/actualpatients-add.component.css']
 })
 export class ActualpatientsAddComponent implements OnInit {
-    actualpatient : Actualpatient = {"regitrationNumber" : "test" ,    
+    actualpatient : Actualpatient = {"registrationNumber" : "" ,   
     "name"        : "",
     "gender"      : "",
-    "DOB"         : new Date("1934-11-1"),
-    "dateOfAdmission" : new Date("2014-11-1"),  
-    "photoUrl"    : "http://lorempixel.com/100/100/people?1",
-    "PCPContact" : 
+    "DOB"         : new Date(),
+    "dateOfAdmission" : new Date(),  
+    "photoUrl"    : "",
+    "pcpContact" : 
     {
-		  "name" : "123test" , 
+		  "name" : "" , 
 		  "contactNo" : "" , 
-		  "adress" : "test"
+		  "adress" : ""
 	   },
     "comments" : "",
     "initialPayment" : 
@@ -31,7 +31,7 @@ export class ActualpatientsAddComponent implements OnInit {
     }
     };
     
-    isSaving: boolean = false; 
+    isSaved: boolean = false; 
     
 
     constructor(private actualpatientsService: ActualpatientsService,
@@ -54,13 +54,15 @@ export class ActualpatientsAddComponent implements OnInit {
         // window.history.back();
     }
     saveNewActualpatientsDetails(){
-      this.isSaving = true;
+     // this.isSaved = true;
       this.actualpatientsService
           .saveNewActualpatient(this.actualpatient)
           .subscribe( 
             (r: Response) => {console.log('success, '+ JSON.stringify(this.actualpatient))},
             (error) => {console.log('error: ', error);},
-            () => {this.isSaving = false;}
+            () => {this.isSaved = true;}
           );
+          
+  //        this.isSaved = true;
     }
 }

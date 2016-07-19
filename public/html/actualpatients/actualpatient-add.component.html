@@ -9,7 +9,7 @@
             <div class='col-md-6'>
                 <div class='row'>
                     <div class='col-md-3'>Regitration Number:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.regitrationNumber"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualpatient.registrationNumber"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
@@ -34,15 +34,15 @@
                 <h4>PCPContact:</h4> 
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.PCPContact.name"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualpatient.pcpContact.name"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Contact No:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.PCPContact.contactNo"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualpatient.pcpContact.contactNo"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Adress:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.PCPContact.adress"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualpatient.pcpContact.adress"></div>
                 </div>
                 <h4>Initial Payment :</h4>
                 <div class='row'>
@@ -51,7 +51,10 @@
                 </div> 
             </div>            
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <br>
+        <button type="submit" class="btn btn-primary" *ngIf="!isSaved">Save</button>
+        
+        <div *ngIf="isSaved" class="alert alert-success" width="500"> <h3>Saved</h3> </div>
         </form>
     </div>
 

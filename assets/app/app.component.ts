@@ -30,6 +30,7 @@ import { StudentsService } from './students/students.service';
 
 import { ActualpatientComponent} from './actualpatients/actualpatient.component';
 import { ActualpatientsAddComponent} from './actualpatients/actualpatient-add.component';
+import { ActualpatientDetailsComponent} from './actualpatients/actualpatient-details.component';
 import { ActualpatientsService } from './actualpatients/actualpatients.service';
 
 
@@ -57,7 +58,8 @@ import { ActualpatientsService } from './actualpatients/actualpatients.service';
     { path: '/students/:id', name: 'Student Details', component: StudentDetailsComponent },
     { path: '/studentsAdd', name: 'Student Add', component: StudentAddComponent },
     { path: '/Actualpatients', name: 'Actualpatients', component: ActualpatientComponent},
-    { path: '/ActualpatientsAdd', name: 'Actualpatients Add', component: ActualpatientsAddComponent}
+    { path: '/ActualpatientsAdd', name: 'Actualpatients Add', component: ActualpatientsAddComponent},
+    { path: '/ActualpatientsDetails', name: 'Actualpatients Details', component: ActualpatientDetailsComponent}
 ])
 export class AppComponent {
     

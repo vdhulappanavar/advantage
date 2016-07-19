@@ -14,22 +14,25 @@ export class ActualpatientsService{
 
   getAllActualpatients(): Observable<Actualpatient[]>{
     let actualpatients$ = this.http
-      .get(`${this.baseUrl}/actualpatients`)
+      .get(`${this.baseUrl}/Actualpatients`)
       .map(mapActualpatients);
       return actualpatients$;
   }
   getActualpatients(id: string): Observable<Actualpatient> {
+    console.log("in service getActualpatients(id)");
     let actualpatients$ = this.http
-      .get(`${this.baseUrl}/actualpatients/${id}`)
+      .get(`${this.baseUrl}/Actualpatients/${id}`)
       .map(mapActualpatient);
+      console.log("mapped");
+      console.log(actualpatients$);
       return actualpatients$;
   }
   saveActualpatient(actualpatient: Actualpatient) : Observable<Response>{
         const body = JSON.stringify(actualpatient);
         const headers = new Headers({'Content-Type': 'application/json'});
-
+        console.log("body from saveNewStudent : " , body);
          return this.http
-              .post(`${this.baseUrl}/actualpatients/${actualpatient.id}`,body, {headers: headers});
+              .post(`${this.baseUrl}/Actualpatients/${actualpatient.id}`,body, {headers: headers});
   }
   
   
@@ -57,14 +60,14 @@ function mapActualpatient(response:Response): Actualpatient{
 
 function toActualpatient(r:any): Actualpatient{
   let actualpatient = <Actualpatient>({
-//    id: parseInt(r.url.replace('http://swapi.co/api/actualpatients/','').replace('/','')),
-    regitrationNumber : r._regitrationNumber ,    
+    id : r._id , 
+    registrationNumber : r.registrationNumber ,     
     name        : r.name,
     gender      : r.gender,
     DOB         : r.DOB,
     dateOfAdmission : r.dateOfAdmission,  
     photoUrl    : r.photoUrl,
-    PCPContact : r.PCPContact,
+    pcpContact : r.pcpContact,
     comments : r.comments,
     initialPayment : r.initialPayment,
     mongoId : r._id    

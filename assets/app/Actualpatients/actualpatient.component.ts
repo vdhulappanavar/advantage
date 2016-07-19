@@ -2,14 +2,14 @@ import { Component, OnInit } from 'angular2/core';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { Actualpatient } from './actualpatient';
-//import { ActualpatientDetailsComponent } from './actualpatient-details.component';
+import { ActualpatientDetailsComponent } from './actualpatient-details.component';
 import { ActualpatientsService } from './actualpatients.service';
 
 import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
 
 @Component({
   selector: 'actualpatients-list',
-  directives: [/*ActualpatientDetailsComponent,*/ ROUTER_DIRECTIVES],
+  directives: [ActualpatientDetailsComponent, ROUTER_DIRECTIVES],
   template: `
   <div class="panel panel-primary ">
 	  <div class="panel-heading">
@@ -31,7 +31,9 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
                                 {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
-                        <th>Patient Name</th>                        
+                        <th>Patient Name</th>
+                        <th></th>         
+                        <th></th>               
                     </tr>
          </thead>
          <tbody>
@@ -40,8 +42,14 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
                 <img *ngIf='showImage' [src]='actualpatient.photoUrl' [title]='actualpatient.name' [style.width.px]='imageWidth' [style.margin.px]= 'imageMargin'/>
           </td>
 					<td>
-					  <a href="#">{{actualpatient.name}}</a>
+					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.id}}</a>
 					</td>		
+          <td>
+            <a>Edit</a>
+          </td>
+          <td>
+            <a>Delete</a>
+          </td>
 				</tr>
         </tbody>
 			  </table>	  

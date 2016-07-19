@@ -3,26 +3,26 @@ import { RouteParams, Router} from 'angular2/router';
 import { Response } from 'angular2/http';
 import { NgForm }    from 'angular2/common';
 
-import { ActualpatienssService } from './actualpatients.service';
+import { ActualpatientsService } from './actualpatients.service';
 import { Actualpatient } from './actualpatient';
 
 @Component({
   selector: 'actualpatient-details',
   templateUrl: 'html/actualpatients/actualpatient-details.component.html',
-  styleUrls: ['html/actualpatients/actualpatient-details.component.css']
+  styleUrls: ['html/actualpatients/actualpatients-details.component.css']
 })
 export class ActualpatientDetailsComponent implements OnInit {
     @Input() actualpatient : Actualpatient;
     isSaving: boolean;
     professions: string[] = ['jedi', 'bounty hunter', 'princess', 'sith lord'];
 
-    constructor(private actualpatientsService: ActualpatienssService,
+    constructor(private actualpatientsService: ActualpatientsService,
                private routeParams: RouteParams,
                private router: Router){
     }
 
     ngOnInit(){
-//        let id = Number.parseInt(this.routeParams.get('id'));
+       // let id = Number.parseInt(this.routeParams.get('id'));
         let id = this.routeParams.get('id');
         console.log('getting actualpatient with id: ', id);
         this.actualpatientsService
@@ -36,10 +36,10 @@ export class ActualpatientDetailsComponent implements OnInit {
         // could also use:
         // window.history.back();
     }
-    saveActualpatientDetails(){
+    saveActualpatient(){
       this.isSaving = true;
       this.actualpatientsService
-          .saveActualpatients(this.actualpatient)
+          .saveActualpatient(this.actualpatient)
           .subscribe(
  //           (r: Response) => {console.log('success, id:'+this.actualpatient.id+', Name:'+this.actualpatient.name+', Weight:'+this.actualpatient.weight)},
             (r: Response) => {console.log('success, '+ JSON.stringify(this.actualpatient))},

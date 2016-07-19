@@ -1,12 +1,12 @@
 export interface Actualpatient {
     id?: string;
-    regitrationNumber : string;    
+    registrationNumber : string;    
     name        : string;
     gender      : string;
     DOB         : Date;
     dateOfAdmission : Date;  
     photoUrl    : string;
-    PCPContact : {
+    pcpContact : {
         name : string; 
         contactNo : string; 
         adress : string;

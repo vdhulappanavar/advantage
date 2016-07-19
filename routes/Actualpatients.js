@@ -64,14 +64,16 @@ router.get('/:id', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 
-        var actualpatients = new Actualpatients({
-            url         : req.body.url,
-            name        : req.body.name,
-            height      : req.body.height,
-            weight      : req.body.weight,
-            profession  : req.body.profession,
-            medicines : req.body.medicines,
-            newmedicines : req.body.medicines,
+        var actualpatients = new Actualpatients({            
+            registrationNumber      : req.body.registrationNumber,
+            name        : req.body.name,            
+            gender      : req.body.gender,
+            dob  : req.body.DOB,
+            dateOfAdmission : req.body.dateOfAdmission,
+            Photourl         : req.body.Photourl,
+            pcpContact : req.body.pcpContact , 
+            initialPayment : req.body.initialPayment , 
+            comments : req.body.comments 
            });
         actualpatients.save(function(err, result) {
             if (err) {
@@ -112,13 +114,15 @@ router.post('/:id', function(req, res, next) {
 //                error: {message: 'Message created by other user'}
 //            });
 //        }
-        doc.url = req.body.url;
+        doc.registrationNumber = req.body.registrationNumber;
         doc.name = req.body.name;
-        doc.height = req.body.height;
-        doc.weight = req.body.weight;
-        doc.profession = req.body.profession;
-        doc.medicines = req.body.medicines,
-        doc.newmedicines = req.body.medicines,
+        doc.gender = req.body.gender;
+        doc.dob = req.body.dob;
+        doc.dateOfAdmission = req.body.dateOfAdmission;
+        doc.Photourl = req.body.Photourl,
+        doc.pcpContact = req.body.pcpContact,
+        doc.initialPayment = req.body.initialPayment,
+        doc.comments = req.body.comments
         
         doc.save(function(err, result) {
             if (err) {
