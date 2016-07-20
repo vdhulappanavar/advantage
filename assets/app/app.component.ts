@@ -60,7 +60,7 @@ import { ActualpatientsService } from './actualpatients/actualpatients.service';
     { path: '/studentsAdd', name: 'Student Add', component: StudentAddComponent },
     { path: '/Actualpatients', name: 'Actualpatients', component: ActualpatientComponent},
     { path: '/ActualpatientsAdd', name: 'Actualpatients Add', component: ActualpatientsAddComponent},
-    { path: '/ActualpatientsDetails', name: 'Actualpatients Details', component: ActualpatientDetailsComponent} 
+    { path: '/ActualpatientsDetails', name: 'Actualpatients Details', component: ActualpatientDetailsComponent}, 
     { path: '/ActualpatientsEdit', name: 'Actualpatients Edit', component: ActualpatientsEditComponent}
 ])
 export class AppComponent {

@@ -1,51 +1,101 @@
-<section class="med2patient-details">
-  <!-- new syntax for ng-if -->
-  <section *ngIf="med2patient">
-    <section class="med2patient-details__header">
-      <h2>You selected: {{med2patient.name}}</h2>
-      <h3>Description</h3>
-      <p>
-        {{med2patient.name}} weights {{med2patient.weight}} and is {{med2patient.height}} tall.
-      </p>
-    </section>
-    <section>
-      <form (ngSubmit)="saveMed2med2patientDetails()" #med2patientForm="ngForm">
-        <div>
-          <label for="name">Name: </label>
-          <!-- [(ngModel)] let's you do two-way data binding -->
-          <input [(ngModel)]="med2patient.name" required ngControl="name" #name="ngForm">
-          <div [hidden]="name.valid || name.pristine" class="error">
-            Name is required
+<div class="panel panel-primary">
+  <div class="panel-heading" style='font-size:large' *ngIf="med2patient">
+    <div class="row">
+      <div class='col-md-6'>
+      <h4>You selected:</h4>
+      <h4> Name : {{med2patient.name}}  Weight : {{med2patient.weight}}  Height : {{med2patient.height}}</h4>
+      </div>
+      <div class='col-md-1 col-md-offset-4'>
+       <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+       </a>
+     </div>
+  </div>  
+  </div>
+  <div class='panel-body'>
+    <div class='row'>
+        <div class='col-md-6'>            
+            <div class="row">
+              <div style="background-color:#337ab7;padding:0px 2px 6px 7px;color:white;border-radius:5px">
+               <h4 align="center">Pick Medicines</h4>
+              <div >Filter by:
+              <span  style="color:black">
+                  <input type='text' [(ngModel)]='listFilter'/>
+               </span>
+               </div>
+               </div>
+            <div class="table-responsive">
+			         <table class="table">
+                  <thead>
+                    <tr>
+                      <td>Medicine Name</td>
+                      <th></th>                      
+                    </tr>
+                  </thead>
+                  <tbody id="list1">
+                    <tr *ngFor="#medicine of medicines | med2patientmedicineFilter:listFilter">
+                         <td>{{medicine.name}}</td>
+                         <td><a (click)="addNewMedPatientList($event, medicine)">Add</a></td>
+                    </tr>
+                  </tbody>
+               </table>
+            </div>
+            </div>
+        </div>
+        <div class='col-md-6' *ngIf="med2patient">      
+          <div class="row">
+            <br><br><br><br>
           </div>
+          
+          <div class="table-responsive" >
+			         <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Patients New Medicine</th>
+                      <th></th>    
+                      <th></th>                  
+                    </tr>
+                  </thead>
+                  <tbody id="list1">
+                    <tr *ngFor="#med2patientmedicine of med2patient.newmedicines">
+                         <td>{{med2patientmedicine.name}}{{med2patientmedicine.qty}}</td>
+                         <td><a (click)="onEdit($event, newmed2patientmedicine)">Edit</a></td>
+                         <td><a (click)="onDelete($event, newmed2patientmedicinet)">Delete</a></td>
+                    </tr>
+                  </tbody>
+               </table>
+            </div>
+          
+               
+          <div class="table-responsive">
+			         <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Patients Medicine</th>
+                      <th></th>    
+                      <th></th>                  
+                    </tr>
+                  </thead>
+                  <tbody id="list1">
+                    <tr *ngFor="#med2patientmedicine of med2patient.medicines">
+                         <td>{{med2patientmedicine.name}}{{med2patientmedicine.qty}}</td>
+                         <td><a (click)="onEdit($event, med2patientmedicine)">Edit</a></td>
+                         <td><a (click)="onDelete($event, med2patientmedicinet)">Delete</a></td>
+                    </tr>
+                  </tbody>
+               </table>
+            </div>
+            
         </div>
-        <div>
-          <label for="weight">Weight: </label>
-          <input [(ngModel)]="med2patient.weight" ngControl="weight">
-        </div>
-        <div>
-          <label for="height">Height: </label>
-          <input [(ngModel)]="med2patient.height" ngControl="height">
-        </div>
-        <div>
-          <label for="profession">Profession:</label>
-          <select>
-            <option *ngFor="#profession of professions" [value]="profession">{{profession}}</option>
-          </select>
-        </div>
-        <button type="submit" [disabled]="!med2patientForm.form.valid">Save</button>
-        <button type="button" (click)="gotoPeoplesList()">Back to peoples list</button>
-        <div [hidden]="!isSaving"> Saving... </div>
-      </form>
-    </section>
-    <section>
-     <ul class="med2patients_medicines">
-    <li *ngFor="#med2patientmedicine of med2patient.medicines" >
-      <h6>{{med2patientmedicine.name}}{{med2patientmedicine.qty}}</h6>
-    </li>
-    </ul>
-  </section>
-  </section>
-  <section *ngIf="!med2patient">
-    Loading...
-  </section>
-</section>
+        
+    </div>
+  </div>  
+  
+   <div class='panel-footer'>
+        
+        <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+  
+</div>

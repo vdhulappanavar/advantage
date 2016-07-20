@@ -18,3 +18,4 @@ var schema = new Schema({
 });
 
 module.exports = mongoose.model('Med2patients', schema);
+
