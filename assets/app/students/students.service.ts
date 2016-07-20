@@ -19,9 +19,12 @@ export class StudentsService{
       return students$;
   }
   getStudents(id: string): Observable<Student> {
+     console.log("in service getStudents(id)");
     let students$ = this.http
       .get(`${this.baseUrl}/students/${id}`)
       .map(mapStudent);
+      console.log("mapped");
+      console.log(students$);
       return students$;
   }
   saveStudent(student: Student) : Observable<Response>{

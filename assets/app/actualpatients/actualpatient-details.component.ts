@@ -9,7 +9,7 @@ import { Actualpatient } from './actualpatient';
 @Component({
   selector: 'actualpatient-details',
   templateUrl: 'html/actualpatients/actualpatient-details.component.html',
-  styleUrls: ['html/actualpatients/actualpatients-details.component.css']
+  styleUrls: ['html/actualpatients/actualpatient-details.component.css']
 })
 export class ActualpatientDetailsComponent implements OnInit {
     @Input() actualpatient : Actualpatient;
@@ -21,13 +21,14 @@ export class ActualpatientDetailsComponent implements OnInit {
                private router: Router){
     }
 
-    ngOnInit(){
-       // let id = Number.parseInt(this.routeParams.get('id'));
+       ngOnInit(){
+//        let id = Number.parseInt(this.routeParams.get('id'));
         let id = this.routeParams.get('id');
-        console.log('getting actualpatient with id: ', id);
+        console.log('getting student with id: ', id);
         this.actualpatientsService
-          .getActualpatients(id)
+         .getActualpatient(id)
           .subscribe(p => this.actualpatient = p);
+          console.log('getting student : ', this.actualpatient);
     }
 
     gotoPeoplesList(){

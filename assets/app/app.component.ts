@@ -28,7 +28,7 @@ import { StudentDetailsComponent } from './students/student-details.component';
 import { StudentAddComponent } from './students/student-add.component';
 import { StudentsService } from './students/students.service';
 
-import { ActualpatientComponent} from './actualpatients/actualpatient.component';
+import { ActualpatientComponent} from './actualpatients/actualpatient-list.component';
 import { ActualpatientsAddComponent} from './actualpatients/actualpatient-add.component';
 import { ActualpatientDetailsComponent} from './actualpatients/actualpatient-details.component';
 import { ActualpatientsService } from './actualpatients/actualpatients.service';

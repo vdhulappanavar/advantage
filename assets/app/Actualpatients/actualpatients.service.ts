@@ -14,14 +14,14 @@ export class ActualpatientsService{
 
   getAllActualpatients(): Observable<Actualpatient[]>{
     let actualpatients$ = this.http
-      .get(`${this.baseUrl}/Actualpatients`)
+      .get(`${this.baseUrl}/actualpatients`)
       .map(mapActualpatients);
       return actualpatients$;
   }
-  getActualpatients(id: string): Observable<Actualpatient> {
+  getActualpatient(id: string): Observable<Actualpatient> {
     console.log("in service getActualpatients(id)");
     let actualpatients$ = this.http
-      .get(`${this.baseUrl}/Actualpatients/${id}`)
+      .get(`${this.baseUrl}/actualpatients/${id}`)
       .map(mapActualpatient);
       console.log("mapped");
       console.log(actualpatients$);
@@ -32,7 +32,7 @@ export class ActualpatientsService{
         const headers = new Headers({'Content-Type': 'application/json'});
         console.log("body from saveNewStudent : " , body);
          return this.http
-              .post(`${this.baseUrl}/Actualpatients/${actualpatient.id}`,body, {headers: headers});
+              .post(`${this.baseUrl}/actualpatients/${actualpatient.id}`,body, {headers: headers});
   }
   
   
@@ -42,7 +42,7 @@ export class ActualpatientsService{
         console.log("body from saveNewStudent : " , body);
         const headers = new Headers({'Content-Type': 'application/json'});
 
-         return this.http.post('/Actualpatients' , body, {headers: headers});
+         return this.http.post('/actualpatients' , body, {headers: headers});
   }
 
 

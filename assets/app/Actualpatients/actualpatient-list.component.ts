@@ -42,7 +42,7 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
                 <img *ngIf='showImage' [src]='actualpatient.photoUrl' [title]='actualpatient.name' [style.width.px]='imageWidth' [style.margin.px]= 'imageMargin'/>
           </td>
 					<td>
-					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.id}}</a>
+					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.name}}</a>
 					</td>		
           <td>
             <a>Edit</a>
@@ -58,7 +58,7 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
 	</div>
   <h6>Thanks to http://www.barbarianmeetscoding.com/blog/categories/angular2-step-by-step/ </h6>
   `,
-  styleUrls: ['html/actualpatients/actualpatients.component.css'],
+  styleUrls: ['html/actualpatients/actualpatients-list.component.css'],
   pipes : [ActualpatientsFilterPipe]
 })
 export class ActualpatientComponent implements OnInit{

@@ -1,4 +1,79 @@
-HI
+<section *ngIf="actualpatient">
+<div class="panel panel-primary">
+  <div class="panel-heading" style='font-size:large'>
+      <h2>{{actualpatient.name}}</h2>
+  </div>
+  
+  <div class='panel-body'>      
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Regitration Number:</div>
+                    {{actualpatient.registrationNumber}}
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Name:</div>
+                    {{actualpatient.name}}
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>DOB:</div>
+                    {{actualpatient.DOB}}
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>dateOfAdmission:</div>
+                    {{actualpatient.dateOfAdmission}}
+                </div>
+                
+                <h4>PCPContact:</h4> 
+                <div class='row'>
+                    <div class='col-md-3'>Name:</div>
+                    {{actualpatient.pcpContact.name}}
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Contact No:</div>
+                    {{actualpatient.pcpContact.contactNo}}
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Adress:</div>
+                    {{actualpatient.pcpContact.adress}}
+                </div>
+                <h4>Initial Payment :</h4>
+                <div class='row'>
+                    <div class='col-md-3'>registrationFee:</div>
+                    {{actualpatient.initialPayment.registrationFee}}
+                </div> 
+            </div> 
+			
+			
+			<div class='col-md-6'>
+                <img class='center-block img-responsive' 
+                     [style.width.px]='200' 
+                     [style.margin.px]='2' 
+                     [src]='patient.photoUrl'
+                     [title]='actualpatient.name'>
+            </div>
+			           
+        </div>
+        
+        
+        
+        
+        
+    </div>
 
-{{actualpatient.name}}
+    <div class='panel-footer'>
+        
+        <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+    
+  </div>
+  
+  
+
+
+
+</section>
+
 
