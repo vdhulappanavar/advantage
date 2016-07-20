@@ -8,8 +8,8 @@ import { Actualpatient } from './actualpatient';
 
 @Component({
   selector: 'actualpatients-details',
-  templateUrl: 'html/actualpatients/actualpatient-add.component.html',
-  styleUrls: ['html/actualpatients/actualpatients-add.component.css']
+  templateUrl: 'html/actualpatients/actualpatient-edit.component.html',
+  styleUrls: ['html/actualpatients/actualpatient-edit.component.css']
 })
 export class ActualpatientsEditComponent implements OnInit {
     actualpatient : Actualpatient = {"registrationNumber" : "" ,   
@@ -40,10 +40,11 @@ export class ActualpatientsEditComponent implements OnInit {
     }
 
     ngOnInit(){       
-       // this.actualpatients.name="hello";
-       // this.actualpatients.schoolName="hi";
-       // this.actualpatients.url="";
-       // this.actualpatients.standard="";
+        let id = this.routeParams.get('id');
+        console.log('getting patient with id: ', id);
+        this.actualpatientsService
+          .getActualpatient(id)
+          .subscribe(p => this.actualpatient = p);
         
     }
 
@@ -53,10 +54,10 @@ export class ActualpatientsEditComponent implements OnInit {
         // could also use:
         // window.history.back();
     }
-    saveNewActualpatientsDetails(){
+    saveActualpatientDetails(){
      // this.isSaved = true;
       this.actualpatientsService
-          .saveNewActualpatient(this.actualpatient)
+          .saveActualpatient(this.actualpatient)
           .subscribe( 
             (r: Response) => {console.log('success, '+ JSON.stringify(this.actualpatient))},
             (error) => {console.log('error: ', error);},

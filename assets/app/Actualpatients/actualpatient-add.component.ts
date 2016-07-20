@@ -9,7 +9,7 @@ import { Actualpatient } from './actualpatient';
 @Component({
   selector: 'actualpatients-details',
   templateUrl: 'html/actualpatients/actualpatient-add.component.html',
-  styleUrls: ['html/actualpatient/actualpatients-add.component.css']
+  styleUrls: ['html/actualpatients/actualpatient-add.component.css']
 })
 export class ActualpatientsAddComponent implements OnInit {
     actualpatient : Actualpatient = {"registrationNumber" : "" ,   

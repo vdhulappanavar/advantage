@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { Actualpatient } from './actualpatient';
 import { ActualpatientDetailsComponent } from './actualpatient-details.component';
+import { ActualpatientsEditComponent } from './actualpatient-edit.component';
 import { ActualpatientsService } from './actualpatients.service';
 
 import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
@@ -45,7 +46,7 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
 					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.name}}</a>
 					</td>		
           <td>
-            <a>Edit</a>
+            <a [routerLink] = "[ 'Actualpatients Edit' , {id: actualpatient.id} ]">Edit</a>
           </td>
           <td>
             <a>Delete</a>
@@ -55,8 +56,8 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
 			  </table>	  
 			</div>
 		</div>
-	</div>
-  <h6>Thanks to http://www.barbarianmeetscoding.com/blog/categories/angular2-step-by-step/ </h6>
+	</div>  
+  
   `,
   styleUrls: ['html/actualpatients/actualpatients-list.component.css'],
   pipes : [ActualpatientsFilterPipe]

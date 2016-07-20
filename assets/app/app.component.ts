@@ -28,9 +28,10 @@ import { StudentDetailsComponent } from './students/student-details.component';
 import { StudentAddComponent } from './students/student-add.component';
 import { StudentsService } from './students/students.service';
 
-import { ActualpatientComponent} from './actualpatients/actualpatient-list.component';
+import { ActualpatientComponent} from './actualpatients/actualpatient.component';
 import { ActualpatientsAddComponent} from './actualpatients/actualpatient-add.component';
 import { ActualpatientDetailsComponent} from './actualpatients/actualpatient-details.component';
+import { ActualpatientsEditComponent} from './actualpatients/actualpatient-edit.component';
 import { ActualpatientsService } from './actualpatients/actualpatients.service';
 
 
@@ -59,7 +60,8 @@ import { ActualpatientsService } from './actualpatients/actualpatients.service';
     { path: '/studentsAdd', name: 'Student Add', component: StudentAddComponent },
     { path: '/Actualpatients', name: 'Actualpatients', component: ActualpatientComponent},
     { path: '/ActualpatientsAdd', name: 'Actualpatients Add', component: ActualpatientsAddComponent},
-    { path: '/ActualpatientsDetails', name: 'Actualpatients Details', component: ActualpatientDetailsComponent}
+    { path: '/ActualpatientsDetails', name: 'Actualpatients Details', component: ActualpatientDetailsComponent} 
+    { path: '/ActualpatientsEdit', name: 'Actualpatients Edit', component: ActualpatientsEditComponent}
 ])
 export class AppComponent {
     
