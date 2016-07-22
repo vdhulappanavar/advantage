@@ -50,8 +50,8 @@ function toMedicine(r:any): Medicine{
     id: r._id,
     url: r.url,
     name: r.name,
-    weight: r.weight,
-    height: r.height,
+    qty: r.qty,
+    totalcost: r.totalcost,
     mongoId : r._id
   });
   console.log('Parsed medicine:', medicine);

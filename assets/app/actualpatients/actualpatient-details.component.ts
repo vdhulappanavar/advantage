@@ -2,18 +2,23 @@ import { Component, Input, OnInit } from 'angular2/core';
 import { RouteParams, Router} from 'angular2/router';
 import { Response } from 'angular2/http';
 import { NgForm }    from 'angular2/common';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { ActualpatientsService } from './actualpatients.service';
 import { Actualpatient } from './actualpatient';
 
+import { ActualpatientsEditComponent } from './actualpatient-edit.component';
+
 @Component({
   selector: 'actualpatient-details',
+  directives: [ActualpatientsEditComponent, ROUTER_DIRECTIVES],
   templateUrl: 'html/actualpatients/actualpatient-details.component.html',
   styleUrls: ['html/actualpatients/actualpatient-details.component.css']
 })
 export class ActualpatientDetailsComponent implements OnInit {
     @Input() actualpatient : Actualpatient;
     isSaving: boolean;
+    listFilter="";
     professions: string[] = ['jedi', 'bounty hunter', 'princess', 'sith lord'];
 
     constructor(private actualpatientsService: ActualpatientsService,

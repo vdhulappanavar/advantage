@@ -3,21 +3,22 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
 @Component({
     selector: 'my-header',
     template: `
-      <header class="row">
-            <nav class="col-md-8 col-md-offset-2">
-                <ul class="nav nav-pills">
-                    <li><a [routerLink]="['Patients']">Patients</a></li>
-                    <li><a [routerLink]="['Medicines']">Medicines</a></li>
-                    <li><a [routerLink]="['Med2patients']">Med2Patients</a></li>
-                    <li><a [routerLink]="['Auth']">User Management</a></li>
-                    <li><a [routerLink]="['Students']">Students</a></li>
-                    <li><a [routerLink]="['Actualpatients']">ActualPatients</a></li>                    
-                </ul>
-            </nav>
-        </header>
+                    <div>
+						<nav class="navbar navbar-default">
+							<div class="container-fluid">
+								<a class="navbar-brand">{{pageTitle}}</a>
+								<ul class="nav navbar-nav" >
+                                    <li><a [routerLink]="['Actualpatients']">ActualPatients</a></li>
+                                    <li><a [routerLink]="['Actualmedicines']">ActualMedicines</a></li>
+                                    <li><a [routerLink]="['Med2patients']">Med2Patients</a></li>
+                                    <li><a [routerLink]="['Auth']">User Management</a></li>									
+								</ul>
+							</div>
+						</nav>
+					</div>
     `,
-    directives: [ROUTER_DIRECTIVES],
-    styles: [`
+    directives: [ROUTER_DIRECTIVES]
+    /*styles: [`
         header {
             margin-bottom: 20px;
         }
@@ -35,8 +36,9 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
             background-color: #337ab7;
             color: white;
         }
-    `]
+    `]*/
 })
 export class HeaderComponent {
+    pageTitle = "Advantage Elder Care";
     
 }

@@ -45,6 +45,17 @@ export class ActualpatientsService{
          return this.http.post('/actualpatients' , body, {headers: headers});
   }
 
+  deleteMessage(id: string) : Observable<Response>{
+    
+      return this.http.delete(`${this.baseUrl}/actualpatients/${id}`);
+    
+       /* this.messages.splice(this.messages.indexOf(message), 1);
+        const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+        return this._http.delete('http://localhost:3000/message/' + message.messageId + token)
+            .map(response => response.json())
+            .catch(error => Observable.throw(error.json()));*/
+    }
+
 
 }
 

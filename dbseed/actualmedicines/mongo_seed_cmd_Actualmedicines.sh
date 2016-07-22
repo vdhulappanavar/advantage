@@ -1,0 +1,1 @@
+mongoimport --db advantage --collection actualmedicines --drop --file ./actualmedicines_seed.json

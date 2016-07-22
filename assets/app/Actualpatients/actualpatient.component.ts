@@ -14,12 +14,12 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
   template: `
   <div class="panel panel-primary ">
 	  <div class="panel-heading">
-    <div class='row'>
-            <div class='col-md-1 col-md-offset-2'>Filter by:</div>
-            <div class='col-md-4' style="color:black">
-                <input type='text' [(ngModel)]='listFilter'/>
+    <div class='row'>            
+            <div class='col-md-2'><span style='font-size:large'>Patient List</span></div>
+            <div class='col-md-6'>
+                <span style='font-size:large'>Filter by:</span ><input style="color:black" type='text' [(ngModel)]='listFilter'/>
             </div>
-            <div class='col-md-2 col-md-offset-3'><button class="btn btn-danger" [routerLink] = "['Actualpatients Add']" >ADD</button></div>
+            <div class='col-md-1 col-md-offset-1'><button class="btn btn-danger" [routerLink] = "['Actualpatients Add']" >ADD</button></div>
      </div>		 
 	  </div>
 	  <div class="panel-body">
@@ -32,7 +32,10 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
                                 {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
+                        <th>Reg No</th>
                         <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>DOA</th>                        
                         <th></th>         
                         <th></th>               
                     </tr>
@@ -42,14 +45,17 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
           <td>
                 <img *ngIf='showImage' [src]='actualpatient.photoUrl' [title]='actualpatient.name' [style.width.px]='imageWidth' [style.margin.px]= 'imageMargin'/>
           </td>
+          <td>{{actualpatient.registrationNumber}}</td>          
 					<td>
 					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.name}}</a>
 					</td>		
+          <td>{{actualpatient.DOB}}</td>
+          <td>{{actualpatient.dateOfAdmission }}</td>
           <td>
             <a [routerLink] = "[ 'Actualpatients Edit' , {id: actualpatient.id} ]">Edit</a>
           </td>
           <td>
-            <a>Delete</a>
+            <a (click) = "onDelete(actualpatient.id)">Delete</a>
           </td>
 				</tr>
         </tbody>
@@ -85,5 +91,9 @@ export class ActualpatientComponent implements OnInit{
   toggleImage() : void
     {
         this.showImage = !this.showImage;
+    }
+    
+    onDelete(id : string) {
+        this.actualpatientsService.deleteMessage(id);
     }
 }

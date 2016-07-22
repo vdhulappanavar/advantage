@@ -1,62 +1,53 @@
 <div class="panel panel-primary">
   <div class="panel-heading" style='font-size:large'>
-      <div class="row">
-          <div class="col-md-6">
-            Enter Patient Details
-          </div>
-           <div class="col-md-2 col-md-offset-3">
-              <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
-                   <i class='glyphicon glyphicon-chevron-left'></i> Back
-              </a>
-          </div>
-      </div>
+      Enter Patient Details
   </div>
   
   <div class='panel-body'>
-       <form (ngSubmit)="saveNewActualpatientsDetails()">
+       <form (ngSubmit)="saveNewActualmedicinesDetails()">
         <div class='row'>
             <div class='col-md-6'>
                 <div class='row'>
                     <div class='col-md-3'>Regitration Number:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.registrationNumber"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.registrationNumber"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.name"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.name"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Gender:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.gender"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.gender"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>DOB:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.DOB"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.DOB"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>dateOfAdmission:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.dateOfAdmission"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.dateOfAdmission"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>photoUrl:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.photoUrl"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.photoUrl"></div>
                 </div>
                 <h4>PCPContact:</h4> 
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.pcpContact.name"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.pcpContact.name"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Contact No:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.pcpContact.contactNo"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.pcpContact.contactNo"></div>
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Adress:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.pcpContact.adress"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.pcpContact.adress"></div>
                 </div>
                 <h4>Initial Payment :</h4>
                 <div class='row'>
                     <div class='col-md-3'>registrationFee:</div>
-                    <div class='col-md-6'><input [(ngModel)]="actualpatient.initialPayment.registrationFee"></div>
+                    <div class='col-md-6'><input [(ngModel)]="actualmedicine.initialPayment.registrationFee"></div>
                 </div> 
             </div>            
         </div>

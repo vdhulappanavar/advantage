@@ -2,8 +2,7 @@ export interface Medicine {
   id?: string;
   url?: string;
   name: string;
-  height: number;
-  weight: number;
-  profession?: string;
+  qty: number;
+  totalcost: number;
   mongoId : string;
 }

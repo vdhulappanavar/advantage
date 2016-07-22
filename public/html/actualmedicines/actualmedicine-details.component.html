@@ -1,22 +1,7 @@
-<section *ngIf="actualpatient">
+<section *ngIf="actualmedicine">
 <div class="panel panel-primary">
   <div class="panel-heading" style='font-size:large'>
-    <div class="row">
-      <div class="col-md-6">    
-        <h2>{{actualpatient.name}}</h2>
-      </div>
-      <div class="col-md-1 col-md-offset-3">
-          <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
-            <i class='glyphicon glyphicon-chevron-left'></i> Back
-          </a>          
-      </div>
-      <div class="col-md-1">
-          <a class='btn btn-default' [routerLink] = "[ 'Actualpatients Edit' , {id: actualpatient.id} ]" style='width:80px'>
-             Edit
-          </a>
-      </div>
-    </div>
-      
+      <h2>{{actualmedicine.name}}</h2>
   </div>
   
   <div class='panel-body'>      
@@ -24,49 +9,38 @@
             <div class='col-md-6'>
                 <div class='row'>
                     <div class='col-md-3'>Regitration Number:</div>
-                    {{actualpatient.registrationNumber}}
+                    {{actualmedicine.registrationNumber}}
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
-                    {{actualpatient.name}}
+                    {{actualmedicine.name}}
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>DOB:</div>
-                    {{actualpatient.DOB}}
+                    {{actualmedicine.DOB}}
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>dateOfAdmission:</div>
-                    {{actualpatient.dateOfAdmission}}
+                    {{actualmedicine.dateOfAdmission}}
                 </div>
                 
                 <h4>PCPContact:</h4> 
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
-                    {{actualpatient.pcpContact.name}}
+                    {{actualmedicine.pcpContact.name}}
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Contact No:</div>
-                    {{actualpatient.pcpContact.contactNo}}
+                    {{actualmedicine.pcpContact.contactNo}}
                 </div>
                 <div class='row'>
                     <div class='col-md-3'>Adress:</div>
-                    {{actualpatient.pcpContact.adress}}
-                </div>
-                <div *ngIf="actualpatient.comments">
-                <h4>Comments :</h4>
-                 <div class='row'>
-                    <div class='col-md-3'>Adress:</div>
-                    {{actualpatient.comments}}
-                </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-3'>Adress:</div>
-                    {{actualpatient.pcpContact.adress}}
+                    {{actualmedicine.pcpContact.adress}}
                 </div>
                 <h4>Initial Payment :</h4>
                 <div class='row'>
                     <div class='col-md-3'>registrationFee:</div>
-                    {{actualpatient.initialPayment.registrationFee}}
+                    {{actualmedicine.initialPayment.registrationFee}}
                 </div> 
             </div> 
 			
@@ -75,8 +49,8 @@
                 <img class='center-block img-responsive' 
                      [style.width.px]='200' 
                      [style.margin.px]='2' 
-                     [src]='actualpatient.photoUrl'
-                     [title]='actualpatient.name'>
+                     [src]='actualmedicine.photoUrl'
+                     [title]='actualmedicine.name'>
             </div>
 			           
         </div>

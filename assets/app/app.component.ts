@@ -34,35 +34,43 @@ import { ActualpatientDetailsComponent} from './actualpatients/actualpatient-det
 import { ActualpatientsEditComponent} from './actualpatients/actualpatient-edit.component';
 import { ActualpatientsService } from './actualpatients/actualpatients.service';
 
-
+import { ActualmedicineComponent} from './actualmedicines/actualmedicine.component';
+import { ActualmedicinesAddComponent} from './actualmedicines/actualmedicine-add.component';
+import { ActualmedicineDetailsComponent} from './actualmedicines/actualmedicine-details.component';
+import { ActualmedicinesEditComponent} from './actualmedicines/actualmedicine-edit.component';
+import { ActualmedicinesService } from './actualmedicines/actualmedicines.service';
 
 @Component({
     selector: 'my-app',
-    template: ` 
-        <div class="container">
-            <my-header></my-header>
+    template: `         
+        <my-header></my-header>        
+        <div class="container">        
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [ROUTER_DIRECTIVES, HeaderComponent, PeopleComponent, PatientComponent, MedicineComponent, Med2patientComponent , StudentComponent , ActualpatientComponent],
-    providers: [StarWarsService, PatientsService, MedicinesService, Med2patientsService, ROUTER_PROVIDERS, HTTP_PROVIDERS , StudentsService , ActualpatientsService]
+    directives: [ROUTER_DIRECTIVES, HeaderComponent, PeopleComponent, PatientComponent, MedicineComponent, Med2patientComponent , StudentComponent , ActualpatientComponent , ActualmedicineComponent],
+    providers: [StarWarsService, PatientsService, MedicinesService, Med2patientsService, ROUTER_PROVIDERS, HTTP_PROVIDERS , StudentsService , ActualpatientsService , ActualmedicinesService]
 })
 @RouteConfig([
-    { path: '/patients', name: 'Patients', component: PatientComponent, useAsDefault: true},
+    { path: '/patients', name: 'Patients', component: PatientComponent},
     { path: '/patients/:id', name: 'Patient Details', component: PatientDetailsComponent },
     { path: '/medicines', name: 'Medicines', component: MedicineComponent},
     { path: '/medicines/:id', name: 'Medicine Details', component: MedicineDetailsComponent },
    { path: '/med2patients', name: 'Med2patients', component: Med2patientComponent},
     { path: '/med2patients/:id', name: 'Med2patient Details', component: Med2patientDetailsComponent },
     {path: '/auth/...', name: 'Auth', component: AuthenticationComponent},
-    { path: '/students', name: 'Students', component: StudentComponent},
+     { path: '/students', name: 'Students', component: StudentComponent},
     { path: '/students/:id', name: 'Student Details', component: StudentDetailsComponent },
     { path: '/studentsAdd', name: 'Student Add', component: StudentAddComponent },
-    { path: '/Actualpatients', name: 'Actualpatients', component: ActualpatientComponent},
-    { path: '/ActualpatientsAdd', name: 'Actualpatients Add', component: ActualpatientsAddComponent},
+    { path: '/Actualpatients', name: 'Actualpatients', component: ActualpatientComponent , useAsDefault: true},
+    { path: '/ActualpatientsAdd', name: 'Actualpatients Add', component: ActualpatientsAddComponent },
     { path: '/ActualpatientsDetails', name: 'Actualpatients Details', component: ActualpatientDetailsComponent}, 
-    { path: '/ActualpatientsEdit', name: 'Actualpatients Edit', component: ActualpatientsEditComponent}
-])
-export class AppComponent {
+    { path: '/ActualpatientsEdit', name: 'Actualpatients Edit', component: ActualpatientsEditComponent},
     
+    { path: '/Actualmedicines', name: 'Actualmedicines', component: ActualmedicineComponent},
+    { path: '/ActualmedicinesAdd', name: 'Actualmedicines Add', component: ActualmedicinesAddComponent},
+    { path: '/ActualmedicinesDetails', name: 'Actualmedicines Details', component: ActualmedicineDetailsComponent}, 
+    { path: '/ActualmedicinesEdit', name: 'Actualmedicines Edit', component: ActualmedicinesEditComponent}
+])
+export class AppComponent {    
 }
