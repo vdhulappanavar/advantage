@@ -21,6 +21,10 @@ var schema = new Schema({
     comments : String , 
     initialPayment : initialPayment , 
     pcpContact : contact 
-});
+    },
+    {
+        timestamps:true
+    }
+);
 
 module.exports = mongoose.model('Actualmedicines', schema);

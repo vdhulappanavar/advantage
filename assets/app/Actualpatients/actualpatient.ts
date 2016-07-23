@@ -3,7 +3,7 @@ export interface Actualpatient {
     registrationNumber : string;    
     name        : string;
     gender      : string;
-    DOB         : Date;
+    dob        : Date;
     dateOfAdmission : Date;  
     photoUrl    : string;
     pcpContact : {
@@ -14,6 +14,12 @@ export interface Actualpatient {
     comments : string;
     initialPayment : {
         registrationFee : number;
+        cautionDeposit : number;
+        advancePayment : number;
+        establishmentCharges : number;
+        monthlyCharges : number;
+        phyisiotherapyCharges: number;
+        privateNurseCharges : number;
     }
     mongoId? : string;
 }

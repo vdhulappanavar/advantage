@@ -2,7 +2,7 @@
 	"registrationNumber" : "001" ,    
     "name"        : "Patient-1",
     "gender"      : "Female",
-    "DOB"         : "1934-01-01",
+    "dob"         : "1934-01-01",
     "dateOfAdmission" : "2014-01-01",  
     "photoUrl"    : "http://lorempixel.com/100/100/people?1",
     "pcpContact" : {
@@ -12,6 +12,12 @@
 	},
     "comments" : "patient 1 is from so n so place",
     "initialPayment" : {
-		"registrationFee" : 8000
+		"registrationFee" : 8000,
+        "cautionDeposit" : 75000,
+        "advancePayment" : 20000,
+        "establishmentCharges" : 37500,
+        "monthlyCharges" : 20000,
+        "phyisiotherapyCharges": 4000,
+        "privateNurseCharges" : 7000
 	}
 }

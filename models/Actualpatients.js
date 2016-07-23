@@ -8,7 +8,14 @@ var contact = new Schema({
 });
 
 var initialPayment = new Schema({
-    registrationFee : Number
+    registrationFee : Number,
+    cautionDeposit : Number,
+    advancePayment : Number,
+    establishmentCharges : Number,
+    monthlyCharges : Number,
+    phyisiotherapyCharges: Number,
+    privateNurseCharges : Number
+    
 });
 
 var schema = new Schema({    
@@ -21,6 +28,10 @@ var schema = new Schema({
     comments : String , 
     initialPayment : initialPayment , 
     pcpContact : contact 
-});
+    },
+    {
+        timestamps : true
+    }
+);
 
 module.exports = mongoose.model('Actualpatients', schema);

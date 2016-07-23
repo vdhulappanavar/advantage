@@ -15,7 +15,7 @@ export class ActualpatientsAddComponent implements OnInit {
     actualpatient : Actualpatient = {"registrationNumber" : "" ,   
     "name"        : "",
     "gender"      : "",
-    "DOB"         : new Date(),
+    "dob"         : new Date(),
     "dateOfAdmission" : new Date(),  
     "photoUrl"    : "",
     "pcpContact" : 
@@ -27,7 +27,13 @@ export class ActualpatientsAddComponent implements OnInit {
     "comments" : "",
     "initialPayment" : 
     {
-		  "registrationFee" : 8000	
+		  "registrationFee" : 8000,
+      "cautionDeposit" : 75000,
+       "advancePayment" : 20000,
+       "establishmentCharges" : 37500,
+       "monthlyCharges" : 20000,
+       "phyisiotherapyCharges": 4000,
+       "privateNurseCharges" : 7000	
     }
     };
     

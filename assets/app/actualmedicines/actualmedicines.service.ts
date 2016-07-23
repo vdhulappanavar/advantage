@@ -64,7 +64,7 @@ function toActualmedicine(r:any): Actualmedicine{
     registrationNumber : r.registrationNumber ,     
     name        : r.name,
     gender      : r.gender,
-    DOB         : r.DOB,
+    dob         : r.dob,
     dateOfAdmission : r.dateOfAdmission,  
     photoUrl    : r.photoUrl,
     pcpContact : r.pcpContact,

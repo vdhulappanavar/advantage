@@ -15,7 +15,7 @@ export class ActualmedicinesEditComponent implements OnInit {
     actualmedicine : Actualmedicine = {"registrationNumber" : "" ,   
     "name"        : "",
     "gender"      : "",
-    "DOB"         : new Date(),
+    "dob"         : new Date(),
     "dateOfAdmission" : new Date(),  
     "photoUrl"    : "",
     "pcpContact" : 

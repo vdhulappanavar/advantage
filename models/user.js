@@ -9,7 +9,11 @@ var schema = new Schema({
     email: {type: String, required: true, unique: true},
     messages: [{type: Schema.Types.ObjectId, ref: 'Message'}],
     usercomments: [{type: Schema.Types.ObjectId, ref: 'Usercomment'}]
-});
+    },
+    {
+        timestamps:true
+    }
+);
 
 schema.plugin(mongooseUniqueValidator);
 

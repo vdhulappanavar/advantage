@@ -15,7 +15,11 @@ var schema = new Schema({
     profession      : String,
     medicines       : [ subMedicine ],
     newmedicines    : [ subMedicine ]
-});
+    },
+    {
+        timestamps : true
+    }
+);
 
 module.exports = mongoose.model('Med2patients', schema);
 

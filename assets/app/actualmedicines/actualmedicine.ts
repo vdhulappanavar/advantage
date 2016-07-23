@@ -3,7 +3,7 @@ export interface Actualmedicine {
     registrationNumber : string;    
     name        : string;
     gender      : string;
-    DOB         : Date;
+    dob         : Date;
     dateOfAdmission : Date;  
     photoUrl    : string;
     pcpContact : {

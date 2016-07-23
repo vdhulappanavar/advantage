@@ -16,11 +16,31 @@ import { ActualpatientsEditComponent } from './actualpatient-edit.component';
   styleUrls: ['html/actualpatients/actualpatient-details.component.css']
 })
 export class ActualpatientDetailsComponent implements OnInit {
-    @Input() actualpatient : Actualpatient;
+    @Input() actualpatient : Actualpatient={
+      "registrationNumber" : "" ,    
+    "name"        : "",
+    "gender"      : "",
+    "dob"         : new Date(),
+    "dateOfAdmission" : new Date(),  
+    "photoUrl"    : "",
+    "pcpContact" : {
+		"name" : "" , 
+		"contactNo" : "" , 
+		"adress" : ""
+	},
+    "comments" : "",
+    "initialPayment" : {
+		"registrationFee" : 8000,
+        "cautionDeposit" : 75000,
+        "advancePayment" : 20000,
+        "establishmentCharges" : 37500,
+        "monthlyCharges" : 20000,
+        "phyisiotherapyCharges": 4000,
+        "privateNurseCharges" : 7000
+	}
+    };
     isSaving: boolean;
     listFilter="";
-    professions: string[] = ['jedi', 'bounty hunter', 'princess', 'sith lord'];
-
     constructor(private actualpatientsService: ActualpatientsService,
                private routeParams: RouteParams,
                private router: Router){
@@ -53,4 +73,8 @@ export class ActualpatientDetailsComponent implements OnInit {
             () => {this.isSaving = false;}
           );
     }
+    
+    stringAsDate(dateStr) {
+          return new Date(dateStr);
+        }
 }

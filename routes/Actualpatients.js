@@ -68,12 +68,12 @@ router.post('/', function(req, res, next) {
             registrationNumber      : req.body.registrationNumber,
             name        : req.body.name,            
             gender      : req.body.gender,
-            dob  : req.body.DOB,
+            dob  : req.body.dob,
             dateOfAdmission : req.body.dateOfAdmission,
             Photourl         : req.body.Photourl,
             pcpContact : req.body.pcpContact , 
             initialPayment : req.body.initialPayment , 
-            comments : req.body.comments 
+            comments : req.body.comments             
            });
         actualpatients.save(function(err, result) {
             if (err) {

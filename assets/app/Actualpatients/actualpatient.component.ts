@@ -34,6 +34,7 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
                         </th>
                         <th>Reg No</th>
                         <th>Patient Name</th>
+                        <th>Gender</th>
                         <th>Age</th>
                         <th>DOA</th>                        
                         <th></th>         
@@ -49,8 +50,9 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
 					<td>
 					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.name}}</a>
 					</td>		
-          <td>{{actualpatient.DOB}}</td>
-          <td>{{actualpatient.dateOfAdmission }}</td>
+          <td>{{actualpatient.gender}}</td>
+          <td>{{stringAsDate(actualpatient.dob) | date : "mediumDate"}}</td>
+          <td>{{stringAsDate(actualpatient.dateOfAdmission)|date }}</td>
           <td>
             <a [routerLink] = "[ 'Actualpatients Edit' , {id: actualpatient.id} ]">Edit</a>
           </td>
@@ -96,4 +98,8 @@ export class ActualpatientComponent implements OnInit{
     onDelete(id : string) {
         this.actualpatientsService.deleteMessage(id);
     }
+    
+    stringAsDate(dateStr) {
+          return new Date(dateStr);
+        }
 }
