@@ -15,15 +15,12 @@ export class ActualmedicineDetailsComponent implements OnInit {
     @Input() actualmedicine : Actualmedicine;
     isSaving: boolean;
     listFilter="";
-    professions: string[] = ['jedi', 'bounty hunter', 'princess', 'sith lord'];
-
     constructor(private actualmedicinesService: ActualmedicinesService,
                private routeParams: RouteParams,
                private router: Router){
     }
-
-       ngOnInit(){
-//        let id = Number.parseInt(this.routeParams.get('id'));
+    ngOnInit()
+    {
         let id = this.routeParams.get('id');
         console.log('getting student with id: ', id);
         this.actualmedicinesService
@@ -42,8 +39,7 @@ export class ActualmedicineDetailsComponent implements OnInit {
       this.isSaving = true;
       this.actualmedicinesService
           .saveActualmedicine(this.actualmedicine)
-          .subscribe(
- //           (r: Response) => {console.log('success, id:'+this.actualmedicine.id+', Name:'+this.actualmedicine.name+', Weight:'+this.actualmedicine.weight)},
+          .subscribe( 
             (r: Response) => {console.log('success, '+ JSON.stringify(this.actualmedicine))},
             (error) => {console.log('error: ', error);},
             () => {this.isSaving = false;}

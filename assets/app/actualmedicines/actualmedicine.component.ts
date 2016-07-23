@@ -15,11 +15,11 @@ import { ActualmedicinesFilterPipe } from './actualmedicine-filter.pipe';
   <div class="panel panel-primary ">
 	  <div class="panel-heading">
     <div class='row'>
-            <div class='col-md-1 col-md-offset-2'>Filter by:</div>
-            <div class='col-md-4' style="color:black">
-                <input type='text' [(ngModel)]='listFilter'/>
+            <div class='col-md-2'><span style='font-size:large'>Items List</span></div>
+            <div class='col-md-6'>
+                <span style='font-size:large'>Filter by: </span ><input type='text' [(ngModel)]='listFilter'/>
             </div>
-            <div class='col-md-2 col-md-offset-3'><button class="btn btn-danger" [routerLink] = "['Actualmedicines Add']" >ADD</button></div>
+            <div class='col-md-1 col-md-offset-1'><button class="btn btn-danger" [routerLink] = "['Actualpatients Add']" >ADD</button></div>
      </div>		 
 	  </div>
 	  <div class="panel-body">
@@ -32,7 +32,8 @@ import { ActualmedicinesFilterPipe } from './actualmedicine-filter.pipe';
                                 {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
-                        <th>Patient Name</th>
+                        <th>Item Name</th>
+                        <th>Cost</th>
                         <th></th>         
                         <th></th>               
                     </tr>
@@ -40,11 +41,12 @@ import { ActualmedicinesFilterPipe } from './actualmedicine-filter.pipe';
          <tbody>
 				<tr *ngFor="#actualmedicine of actualmedicines | actualmedicinesFilter:listFilter">
           <td>
-                <img *ngIf='showImage' [src]='actualmedicine.photoUrl' [title]='actualmedicine.name' [style.width.px]='imageWidth' [style.margin.px]= 'imageMargin'/>
+                <img *ngIf='showImage' [src]='actualmedicine.url' [title]='actualmedicine.name' [style.width.px]='imageWidth' [style.margin.px]= 'imageMargin'/>
           </td>
 					<td>
 					  <a href="#" [routerLink]="['Actualmedicines Details', {id: actualmedicine.id}]">{{actualmedicine.name}}</a>
 					</td>		
+          <td>{{actualmedicine.cost}}</td>
           <td>
             <a [routerLink] = "[ 'Actualmedicines Edit' , {id: actualmedicine.id} ]">Edit</a>
           </td>

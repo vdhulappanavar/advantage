@@ -12,24 +12,11 @@ import { Actualmedicine } from './actualmedicine';
   styleUrls: ['html/actualmedicines/actualmedicine-edit.component.css']
 })
 export class ActualmedicinesEditComponent implements OnInit {
-    actualmedicine : Actualmedicine = {"registrationNumber" : "" ,   
-    "name"        : "",
-    "gender"      : "",
-    "dob"         : new Date(),
-    "dateOfAdmission" : new Date(),  
-    "photoUrl"    : "",
-    "pcpContact" : 
-    {
-		  "name" : "" , 
-		  "contactNo" : "" , 
-		  "adress" : ""
-	   },
-    "comments" : "",
-    "initialPayment" : 
-    {
-		  "registrationFee" : 8000	
-    }
-    };
+    actualmedicine : Actualmedicine = {"url": "",
+            "name": "",  
+             "cost": 0
+      };
+    
     
     isSaved: boolean = false; 
     

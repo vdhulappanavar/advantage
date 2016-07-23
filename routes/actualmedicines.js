@@ -65,15 +65,9 @@ router.get('/:id', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
         var actualmedicines = new Actualmedicines({            
-            registrationNumber      : req.body.registrationNumber,
+            url      : req.body.url,
             name        : req.body.name,            
-            gender      : req.body.gender,
-            dob  : req.body.dob,
-            dateOfAdmission : req.body.dateOfAdmission,
-            Photourl         : req.body.Photourl,
-            pcpContact : req.body.pcpContact , 
-            initialPayment : req.body.initialPayment , 
-            comments : req.body.comments 
+            cost      : req.body.cost 
            });
         actualmedicines.save(function(err, result) {
             if (err) {
@@ -114,15 +108,9 @@ router.post('/:id', function(req, res, next) {
 //                error: {message: 'Message created by other user'}
 //            });
 //        }
-        doc.registrationNumber = req.body.registrationNumber;
+        doc.url = req.body.url;
         doc.name = req.body.name;
-        doc.gender = req.body.gender;
-        doc.dob = req.body.dob;
-        doc.dateOfAdmission = req.body.dateOfAdmission;
-        doc.Photourl = req.body.Photourl,
-        doc.pcpContact = req.body.pcpContact,
-        doc.initialPayment = req.body.initialPayment,
-        doc.comments = req.body.comments
+        doc.cost = req.body.cost;        
         
         doc.save(function(err, result) {
             if (err) {

@@ -6,42 +6,17 @@
   
   <div class='panel-body'>      
         <div class='row'>
-            <div class='col-md-6'>
-                <div class='row'>
-                    <div class='col-md-3'>Regitration Number:</div>
-                    {{actualmedicine.registrationNumber}}
-                </div>
+            <div class='col-md-6'>                
                 <div class='row'>
                     <div class='col-md-3'>Name:</div>
                     {{actualmedicine.name}}
                 </div>
+                
                 <div class='row'>
-                    <div class='col-md-3'>DOB:</div>
-                    {{actualmedicine.dob}}
-                </div>
-                <div class='row'>
-                    <div class='col-md-3'>dateOfAdmission:</div>
-                    {{actualmedicine.dateOfAdmission}}
+                    <div class='col-md-3'>Cost:</div>
+                    {{actualmedicine.cost}}
                 </div>
                 
-                <h4>PCPContact:</h4> 
-                <div class='row'>
-                    <div class='col-md-3'>Name:</div>
-                    {{actualmedicine.pcpContact.name}}
-                </div>
-                <div class='row'>
-                    <div class='col-md-3'>Contact No:</div>
-                    {{actualmedicine.pcpContact.contactNo}}
-                </div>
-                <div class='row'>
-                    <div class='col-md-3'>Adress:</div>
-                    {{actualmedicine.pcpContact.adress}}
-                </div>
-                <h4>Initial Payment :</h4>
-                <div class='row'>
-                    <div class='col-md-3'>registrationFee:</div>
-                    {{actualmedicine.initialPayment.registrationFee}}
-                </div> 
             </div> 
 			
 			
@@ -49,16 +24,11 @@
                 <img class='center-block img-responsive' 
                      [style.width.px]='200' 
                      [style.margin.px]='2' 
-                     [src]='actualmedicine.photoUrl'
+                     [src]='actualmedicine.url'
                      [title]='actualmedicine.name'>
             </div>
 			           
         </div>
-        
-        
-        
-        
-        
     </div>
 
     <div class='panel-footer'>

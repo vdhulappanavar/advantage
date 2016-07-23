@@ -51,7 +51,7 @@ import { ActualpatientsFilterPipe } from './actualpatient-filter.pipe';
 					  <a href="#" [routerLink]="['Actualpatients Details', {id: actualpatient.id}]">{{actualpatient.name}}</a>
 					</td>		
           <td>{{actualpatient.gender}}</td>
-          <td>{{stringAsDate(actualpatient.dob) | date : "mediumDate"}}</td>
+          <td>{{clacAge(actualpatient.dob)}}</td>
           <td>{{stringAsDate(actualpatient.dateOfAdmission)|date }}</td>
           <td>
             <a [routerLink] = "[ 'Actualpatients Edit' , {id: actualpatient.id} ]">Edit</a>
@@ -84,6 +84,10 @@ export class ActualpatientComponent implements OnInit{
     this.actualpatientsService
       .getAllActualpatients()
       .subscribe(p => this.actualpatients = p)
+      var m = moment("Mar 26th, 1989", "MMM-DD-YYYY");
+      console.log(moment().format('HH:mm:ss'));
+      console.log('You are '+m.fromNow(true) + ' old'); // You are 23 years old
+
   }
 
   selectActualpatient(actualpatient: Actualpatient){
@@ -102,4 +106,9 @@ export class ActualpatientComponent implements OnInit{
     stringAsDate(dateStr) {
           return new Date(dateStr);
         }
+        
+     clacAge(dateStr){
+       var m = moment(new Date(dateStr) , "YYYY-MM-DD");
+       return m.fromNow(true);
+     }
 }

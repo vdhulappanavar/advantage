@@ -1,0 +1,31 @@
+1) Add moments for diff for age calc
+
+2) delete 
+
+3) History events
+
+4) pdf - phantomjs
+
+5)get data for patient and meds
+
+6) Authentication
+
+7) avoid network for cdnjs
+
+8) active tabs
+
+9) Clean Up
+
+10)
+
+
+
+
+Clean Up List:
+
+1) rename actualpatients to patients
+
+2) rename actualmedicines to items
+
+3) rename the methode names
+

@@ -12,24 +12,10 @@ import { Actualmedicine } from './actualmedicine';
   styleUrls: ['html/actualmedicines/actualmedicine-add.component.css']
 })
 export class ActualmedicinesAddComponent implements OnInit {
-    actualmedicine : Actualmedicine = {"registrationNumber" : "" ,   
-    "name"        : "",
-    "gender"      : "",
-    "dob"         : new Date(),
-    "dateOfAdmission" : new Date(),  
-    "photoUrl"    : "",
-    "pcpContact" : 
-    {
-		  "name" : "" , 
-		  "contactNo" : "" , 
-		  "adress" : ""
-	   },
-    "comments" : "",
-    "initialPayment" : 
-    {
-		  "registrationFee" : 8000	
-    }
-    };
+    actualmedicine : Actualmedicine = {"url": "",
+            "name": "",  
+             "cost": 0
+      };
     
     isSaved: boolean = false; 
     
@@ -39,12 +25,7 @@ export class ActualmedicinesAddComponent implements OnInit {
                private router: Router){
     }
 
-    ngOnInit(){       
-       // this.actualmedicines.name="hello";
-       // this.actualmedicines.schoolName="hi";
-       // this.actualmedicines.url="";
-       // this.actualmedicines.standard="";
-        
+    ngOnInit(){
     }
 
     gotoPeoplesList(){
@@ -53,16 +34,14 @@ export class ActualmedicinesAddComponent implements OnInit {
         // could also use:
         // window.history.back();
     }
-    saveNewActualmedicinesDetails(){
-     // this.isSaved = true;
+    saveNewActualmedicinesDetails(){     
       this.actualmedicinesService
           .saveNewActualmedicine(this.actualmedicine)
           .subscribe( 
             (r: Response) => {console.log('success, '+ JSON.stringify(this.actualmedicine))},
             (error) => {console.log('error: ', error);},
             () => {this.isSaved = true;}
-          );
-          
-  //        this.isSaved = true;
+          );          
+  
     }
 }

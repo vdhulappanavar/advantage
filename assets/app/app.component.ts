@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import * as moment from 'moment';
 
 // HTTP_PROVIDERS =. let's you inject http service
 import { HTTP_PROVIDERS } from 'angular2/http';

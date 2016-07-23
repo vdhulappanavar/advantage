@@ -59,19 +59,12 @@ function mapActualmedicine(response:Response): Actualmedicine{
 }
 
 function toActualmedicine(r:any): Actualmedicine{
-  let actualmedicine = <Actualmedicine>({
-    id : r._id , 
-    registrationNumber : r.registrationNumber ,     
-    name        : r.name,
-    gender      : r.gender,
-    dob         : r.dob,
-    dateOfAdmission : r.dateOfAdmission,  
-    photoUrl    : r.photoUrl,
-    pcpContact : r.pcpContact,
-    comments : r.comments,
-    initialPayment : r.initialPayment,
-    mongoId : r._id    
-  });
+  let actualmedicine = <Actualmedicine>(
+    {id : r._id,
+      url: r.url , 
+      name: r.name,  
+      cost: r.cost
+    } );
   console.log('Parsed actualmedicine:', actualmedicine);
   return actualmedicine;
 }
