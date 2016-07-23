@@ -26,6 +26,8 @@
 
 14) Quantitu edit on addtoitem page
 
+15) node.exe and npm instaleed on usb drive and code as well
+
 
 Clean Up List:
 
