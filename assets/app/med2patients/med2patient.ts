@@ -2,7 +2,8 @@ import { Medicine } from '../medicines/medicine';
 
 export interface Med2patient {
   id?: string;
-  url?: string;
+  patientid : string;
+  patientName : string;
   name: string;
   height: number;
   weight: number;

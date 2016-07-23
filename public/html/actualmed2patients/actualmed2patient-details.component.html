@@ -1,0 +1,103 @@
+<div class="panel panel-primary">
+  <div class="panel-heading" style='font-size:large' *ngIf="actualpatient">
+    <div class="row">
+      <div class='col-md-6'>
+      <h4 style='font-size:large'>You Selected:</h4>
+      <div class='col-md-4'> Name : {{actualpatient.name}}</div> <div class='col-md-4'> Gender : {{actualpatient.gender}} </div><div class='col-md-4'> Age : {{clacAge(actualpatient.dob)}}</div>
+      </div>
+      <div class='col-md-1 col-md-offset-4'>
+       <a class='btn btn-default' (click)='gotoPeoplesList()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+       </a>
+     </div>
+  </div>  
+  </div>
+  
+  <div class='panel-body'>
+    <div class='row'>
+        <div class='col-md-6'>            
+            <div class="row">
+              <div style="background-color:#337ab7;padding:0px 2px 6px 7px;color:white;border-radius:5px;border-style: hidden">
+               <h4 align="center">Pick Medicines</h4>
+              <div >Filter by:
+              <span  style="color:black">
+                  <input type='text' [(ngModel)]='listFilter'/>
+               </span>
+               </div>
+               </div>
+            <div class="table-responsive">
+			         <table class="table">
+                  <thead>
+                    <tr>
+                      <td>Medicine Name</td>
+                      <th></th>                      
+                    </tr>
+                  </thead>
+                  <tbody id="list1">
+                    <tr *ngFor="#medicine of actualmedicines | actualmedicinesFilter:listFilter">
+                         <td>{{medicine.name}}</td>
+                         <td><a (click)="saveMeds($event, medicine)">Add</a></td>
+                    </tr>
+                  </tbody>
+               </table>
+            </div>
+            </div>
+        </div>
+        
+        <div lass="col-md-6">
+        <div *ngIf="selectedActualmedicines">
+          <div>            
+               <div align="center" style='font-size:large'>Picked Medicines</div>
+               <br>
+               <div align="right">
+                 <a class='btn btn-primary'  (click)='onClickingSave()' style='width:80px'>
+                   Save            
+                </a>
+              </div>                             
+           </div>
+          <div class="table-responsive">
+			         <table class="table">
+                  <thead>
+                    <tr>
+                      <td>Medicine Name</td>
+                      <th></th>                      
+                    </tr>
+                  </thead>
+                  <tbody id="list1">
+                    <tr *ngFor="#medicine of selectedActualmedicines | actualmedicinesFilter:listFilter">
+                         <td>{{medicine.name}}</td>
+                         <td><a (click)="saveMeds($event, medicine)">Add</a></td>
+                    </tr>
+                  </tbody>
+               </table>
+            </div>
+        </div>
+        
+        <div *ngIf="med2patientObj.medicines">
+          <div>            
+               <div align="center" style='font-size:large'>Old Medicines</div>
+               <br>
+               
+              </div>                             
+           </div>
+          <div class="table-responsive">
+			         <table class="table">
+                  <thead>
+                    <tr>
+                      <td>Medicine Name</td>
+                      <th></th>                      
+                    </tr>
+                  </thead>
+                  <tbody id="list1">
+                    <tr *ngFor="#medicine of med2patientObj.medicines | actualmedicinesFilter:listFilter">
+                         <td>{{medicine.name}}</td>
+                         
+                    </tr>
+                  </tbody>
+               </table>
+            </div>
+            </div>
+        </div>
+  </div>
+  </div>
+  

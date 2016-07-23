@@ -1,0 +1,13 @@
+{
+	"patientid" : "001" ,
+    "medicines" : [
+        {
+            "medid" : "001",
+            "name" : "abc",
+            "qty" : "2" , 
+            "cost" : 100
+        }
+    ],
+    "newmedicines"    : []
+}
+

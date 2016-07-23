@@ -1,4 +1,4 @@
-1) Add moments for diff for age calc
+1) Add moments for diff for age calc      - DONE
 
 2) delete 
 
@@ -6,19 +6,25 @@
 
 4) pdf - phantomjs
 
-5)get data for patient and meds
+5)get data for patient and meds      - PARITALLY DONE
 
 6) Authentication
 
 7) avoid network for cdnjs
 
-8) active tabs
+8) active tabs in bootstrap nav bar
 
 9) Clean Up
 
-10)
+10) Refreshing URL problem 
 
+11) Save button on med2Patient
 
+12) Remove unwanted files
+
+13) when a patient is created create actualmed2patient record
+
+14) Quantitu edit on addtoitem page
 
 
 Clean Up List:

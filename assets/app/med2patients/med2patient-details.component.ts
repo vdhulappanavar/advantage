@@ -30,7 +30,6 @@ export class Med2patientDetailsComponent implements OnInit {
     }
 
     ngOnInit(){
-//        let id = Number.parseInt(this.routeParams.get('id'));
         let id = this.routeParams.get('id');
         console.log('getting med2patient with id: ', id);
         this.med2patientsService
@@ -54,8 +53,7 @@ export class Med2patientDetailsComponent implements OnInit {
       this.isSaving = true;
       this.med2patientsService
           .saveMed2patient(this.med2patient)
-          .subscribe(
- //           (r: Response) => {console.log('success, id:'+this.med2patient.id+', Name:'+this.med2patient.name+', Weight:'+this.med2patient.weight)},
+          .subscribe( 
             (r: Response) => {console.log('success, '+ JSON.stringify(this.med2patient))},
             (error) => {console.log('error: ', error);},
             () => {this.isSaving = false;}
