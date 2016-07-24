@@ -28,7 +28,7 @@
 
 15) node.exe and npm instaleed on usb drive and code as well
 
-
+16) make seed as a route which reads a file system json file an seeds the file js insted of import 
 Clean Up List:
 
 1) rename actualpatients to patients

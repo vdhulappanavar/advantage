@@ -94,6 +94,8 @@ export class ActualpatientComponent implements OnInit{
     this.selectedActualpatient = actualpatient;
   }
   
+  
+  
   toggleImage() : void
     {
         this.showImage = !this.showImage;

@@ -46,9 +46,10 @@ export class ActualpatientsService{
   }
 
   deleteMessage(id: string) : Observable<Response>{
-    
-      return this.http.delete(`${this.baseUrl}/actualpatients/${id}`);
-    
+      const body = JSON.stringify({"_id" : id});
+      const headers = new Headers({'Content-Type': 'application/json'});
+      return this.http.post(`actualpatients/deleteby` , body, {headers: headers});
+        
        /* this.messages.splice(this.messages.indexOf(message), 1);
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
         return this._http.delete('http://localhost:3000/message/' + message.messageId + token)

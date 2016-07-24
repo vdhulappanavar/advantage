@@ -59,14 +59,24 @@
 			         <table class="table">
                   <thead>
                     <tr>
-                      <td>Medicine Name</td>
+                      <th>Medicine Name</th>
+                      <th>Qty</th>
+                      <th>Cost</th>
+                      <th *ngIf="notEditable"><a (click) = 'makeEditable()'>Edit</a></th>
+                      <th *ngIf="!notEditable"><a (click) = 'makeEditable()'>Done</a></th>
                       <th></th>                      
                     </tr>
                   </thead>
                   <tbody id="list1">
-                    <tr *ngFor="#medicine of selectedActualmedicines | actualmedicinesFilter:listFilter">
+                    <tr *ngFor="#medicine of med2patientObj.newmedicines | actualmedicinesFilter:listFilter">
                          <td>{{medicine.name}}</td>
-                         <td><a (click)="saveMeds($event, medicine)">Add</a></td>
+                         <td *ngIf="notEditable">{{medicine.qty}}</td>
+                         <td *ngIf="notEditable">{{medicine.cost}}</td>
+                         <td *ngIf="notEditable"></td>
+                         <td *ngIf="!notEditable"><input [(ngModel)]="medicine.qty" type="Number"></td>
+                         <td *ngIf="!notEditable"><input [(ngModel)]="medicine.cost" type="Number"></td>
+                         <td *ngIf="!notEditable"></td>
+                         <td><a>Delete</a></td>
                     </tr>
                   </tbody>
                </table>
@@ -75,7 +85,7 @@
         
         <div *ngIf="med2patientObj.medicines">
           <div>            
-               <div align="center" style='font-size:large'>Old Medicines</div>
+               <div align="center" style='font-size:large'>Medicines Given Before</div>
                <br>
                
               </div>                             
@@ -84,14 +94,16 @@
 			         <table class="table">
                   <thead>
                     <tr>
-                      <td>Medicine Name</td>
-                      <th></th>                      
+                      <th>Medicine Name</th>
+                      <th>Quantity</th>
+                      <th>Cost</th>                      
                     </tr>
                   </thead>
                   <tbody id="list1">
-                    <tr *ngFor="#medicine of med2patientObj.medicines | actualmedicinesFilter:listFilter">
-                         <td>{{medicine.name}}</td>
-                         
+                    <tr *ngFor="#newmedicine of med2patientObj.medicines | actualmedicinesFilter:listFilter">
+                         <td>{{newmedicine.name}}</td>
+                         <td>{{newmedicine.qty}}</td>
+                         <td>{{newmedicine.cost}}</td>
                     </tr>
                   </tbody>
                </table>

@@ -51,7 +51,7 @@ export class AddMedicineToSelectedPatientComponent implements OnInit {
     };
     isSaving: boolean;
     listFilter="";
-    
+    notEditable = true;
     selectedActualmedicine: Actualmedicine;
     selectedActualmedicines : Actualmedicine[]=[];
     actualmedicines: Actualmedicine[] = [];
@@ -98,6 +98,10 @@ export class AddMedicineToSelectedPatientComponent implements OnInit {
           
       
       
+    }
+    
+    makeEditable(){
+      this.notEditable=!this.notEditable;
     }
 
     gotoPeoplesList(){
@@ -146,7 +150,7 @@ export class AddMedicineToSelectedPatientComponent implements OnInit {
     this.temp.name = actualmedicine.name;
     this.temp.cost = actualmedicine.cost;
     this.temp.medid = actualmedicine.id;
-      
+    this.temp.qty = "1";   
     this.med2patientObj.newmedicines.push(this.temp)
     this.saveActualmed2patientDetails();
   }
