@@ -1,18 +1,18 @@
 export interface Actualpatient {
     id?: string;
-    registrationNumber : string;    
-    name        : string;
-    gender      : string;
-    dob        : Date;
-    dateOfAdmission : Date;  
-    photoUrl    : string;
-    pcpContact : {
+    registrationNumber? : string;    
+    name?        : string;
+    gender  ?    : string;
+    dob    ?    : Date;
+    dateOfAdmission? : Date;  
+    photoUrl  ?  : string;
+    pcpContact? : {
         name : string; 
         contactNo : string; 
         adress : string;
     }
-    comments : string;
-    initialPayment : {
+    comments? : string;
+    initialPayment? : {
         registrationFee : number;
         cautionDeposit : number;
         advancePayment : number;

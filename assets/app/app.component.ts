@@ -44,6 +44,8 @@ import { ActualmedicinesService } from './actualmedicines/actualmedicines.servic
 import {ActualpatientListComponent} from './actualmed2patients/actualpatientslist.component';
 import{AddMedicineToSelectedPatientComponent} from './actualmed2patients/addmedicine-toselectedpatient.component';
 import {Actualmed2patientsService} from './actualmed2patients/actualmed2patient.service';
+
+import{ActualBillComponent} from './actualbill/actualbill.component';
 @Component({
     selector: 'my-app',
     template: `         
@@ -52,7 +54,7 @@ import {Actualmed2patientsService} from './actualmed2patients/actualmed2patient.
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [ROUTER_DIRECTIVES, HeaderComponent, PeopleComponent, PatientComponent, MedicineComponent, Med2patientComponent , StudentComponent , ActualpatientComponent , ActualmedicineComponent],
+    directives: [ROUTER_DIRECTIVES, HeaderComponent, PeopleComponent, PatientComponent, MedicineComponent, Med2patientComponent , StudentComponent , ActualpatientComponent , ActualmedicineComponent , ActualBillComponent],
     providers: [StarWarsService, PatientsService, MedicinesService, Med2patientsService, ROUTER_PROVIDERS, HTTP_PROVIDERS , StudentsService , ActualpatientsService , ActualmedicinesService , ActualpatientListComponent , Actualmed2patientsService]
 })
 @RouteConfig([
@@ -76,7 +78,8 @@ import {Actualmed2patientsService} from './actualmed2patients/actualmed2patient.
     { path: '/ActualmedicinesDetails', name: 'Actualmedicines Details', component: ActualmedicineDetailsComponent}, 
     { path: '/ActualmedicinesEdit', name: 'Actualmedicines Edit', component: ActualmedicinesEditComponent},
     { path: '/SelectPatient', name: 'Select Patient', component: ActualpatientListComponent , useAsDefault: true} ,
-    { path: '/AdditemToPatient', name: 'Add Med To Patient', component: AddMedicineToSelectedPatientComponent}
+    { path: '/AdditemToPatient', name: 'Add Med To Patient', component: AddMedicineToSelectedPatientComponent},
+    { path: '/BillForPatient', name: 'Bill For Patient', component: ActualBillComponent}
 ])
 export class AppComponent {    
 }

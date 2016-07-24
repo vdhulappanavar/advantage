@@ -34,6 +34,7 @@ import { ActualpatientsFilterPipe } from '../actualpatients/actualpatient-filter
                         <th>Patient Name</th>
                         <th>Gender</th>
                         <th>Age</th>   
+                        <th></th>
                     </tr>
          </thead>
          <tbody>
@@ -46,7 +47,8 @@ import { ActualpatientsFilterPipe } from '../actualpatients/actualpatient-filter
 								<a href="#" [routerLink]="['Add Med To Patient', {id: actualpatient.id}]">{{actualpatient.name}}</a>
 								</td>		
 					<td>{{actualpatient.gender}}</td>
-					<td>{{clacAge(actualpatient.dob)}}</td>          
+					<td>{{clacAge(actualpatient.dob)}}</td>
+          <td><a [routerLink]="['Bill For Patient', {id: actualpatient.id}]" >Add to Bill</a></td>          
 				</tr>
           </tbody>
 		  </table>	  
