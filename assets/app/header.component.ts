@@ -10,8 +10,7 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
 								<ul class="nav navbar-nav" >
                                     <li><a [routerLink]="['Actualpatients']">Patients</a></li>
                                     <li><a [routerLink]="['Actualmedicines']">Items</a></li>
-                                    <li class="active"><a  [routerLink]="['Select Patient']">ActualAddToBill</a></li>
-                                    <li><a [routerLink]="['Med2patients']">AddItemToBill</a></li>
+                                    <li class="active"><a  [routerLink]="['Select Patient']">AddItemToBill</a></li>                                    
                                     <li><a [routerLink]="['Auth']">User Management</a></li>									
 								</ul>
 							</div>
