@@ -140,6 +140,41 @@ router.post('/:id', function(req, res, next) {
 });
 
 
+router.delete('/deleteby' , function(req, res, next) {
+  console.log('del profile');
+  console.log(req.body.id);
+   Actualpatients.findByIdAndRemove(req.body.id, function(err, doc) {
+        if (err) {
+            return res.status(404).json({
+                title: 'An error occurred',
+                error: err
+            });
+        }
+        if (!doc) {
+            return res.status(404).json({
+                title: 'No message found',
+                error: {message: 'Message could not be found'}
+            });
+        }
+        console.log("Mongo Record before update .... "+doc);
+        console.log("Request Body from Browser .... "+req.body);
+   });
+});    
+  /*console.log(req.body);
+  Actualpatients.findByIdAndRemove(req.body , {},
+    function(err, obj) {
+      if (err) next(err);
+      req.body.destroy(function(error) {
+        if (err) {
+          next(err)
+        }
+      });
+      res.json(200, obj);
+    }
+  );*/
+
+
+
 
 router.use('/', function(req, res, next) {
     jwt.verify(req.query.token, 'secret', function(err, decoded) {

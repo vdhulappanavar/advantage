@@ -83,17 +83,12 @@ export class ActualpatientComponent implements OnInit{
     //this.actualpatients = this.starWarsService.getAll();
     this.actualpatientsService
       .getAllActualpatients()
-      .subscribe(p => this.actualpatients = p)
-      var m = moment("Mar 26th, 1989", "MMM-DD-YYYY");
-      console.log(moment().format('HH:mm:ss'));
-      console.log('You are '+m.fromNow(true) + ' old'); // You are 23 years old
-
+      .subscribe(p => this.actualpatients = p);
   }
 
   selectActualpatient(actualpatient: Actualpatient){
     this.selectedActualpatient = actualpatient;
   }
-  
   
   
   toggleImage() : void

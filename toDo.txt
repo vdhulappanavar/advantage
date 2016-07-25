@@ -24,7 +24,7 @@
 
 13) when a patient is created create actualmed2patient record
 
-14) Quantitu edit on addtoitem page
+14) Quantitu edit on addtoitem page  - done
 
 15) node.exe and npm instaleed on usb drive and code as well
 
